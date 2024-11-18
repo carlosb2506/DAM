@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EjemploTema3</string>
+    <string name="tvTitulo">TITULITO</string>
+    <string name="tvElegir">Elegir una opcion</string>
+    <string name="etPreferencia">Escriba sus preferencias</string>
+    <string name="tvPreferencia">Sus preferencias</string>
+    <string name="btnMostrar">Añadir</string>
+</resources>

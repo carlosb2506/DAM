@@ -1,0 +1,55 @@
+package fichero;
+
+import java.io.*;
+import java.util.ArrayList;
+
+public class Ficheros {
+    private static ArrayList<String> lineas = new ArrayList<>();
+
+    public static void main(String[] args) {
+        String rutaArchivo = "C:\\Ficheritos\\Probando.txt"; // Cambia esto a la ruta de tu archivo
+        cargarFichero(rutaArchivo, lineas); // Llamar al método cargarFichero
+        
+        ArrayList<String> palabras = new ArrayList<>();
+        
+        // Separar las palabras de cada línea
+        for (String linea : lineas) {
+            String[] palabrasLinea = linea.split(" ");
+            for (String palabra : palabrasLinea) {
+                palabras.add(palabra);
+            }
+        }
+        
+        // Imprimir las palabras en líneas de 5
+        for (int i = 0; i < palabras.size(); i++) {
+
+            System.out.print(palabras.get(i) + " ");
+            // Si se han impreso 5 palabras, ir a la siguiente línea
+            if ((i + 1) % 5 == 0) {
+                System.out.println();
+            }
+        }
+        
+        // Si hay palabras restantes que no completan una línea de 5
+        if (palabras.size() % 5 != 0) {
+            System.out.println(); // Nueva línea al final
+        }
+    }
+
+    public static void cargarFichero(String rutaArchivo, ArrayList<String> lineas) {
+        // Leer el contenido del archivo
+        try (FileReader fr = new FileReader(rutaArchivo);
+             BufferedReader br = new BufferedReader(fr)) {
+             
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                lineas.add(linea);
+            }
+        } 
+        catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+}
+
+

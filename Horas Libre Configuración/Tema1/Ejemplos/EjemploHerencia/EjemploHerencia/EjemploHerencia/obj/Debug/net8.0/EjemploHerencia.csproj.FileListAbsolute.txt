@@ -1,0 +1,15 @@
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\bin\Debug\net8.0\EjemploHerencia.exe
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\bin\Debug\net8.0\EjemploHerencia.deps.json
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\bin\Debug\net8.0\EjemploHerencia.runtimeconfig.json
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\bin\Debug\net8.0\EjemploHerencia.dll
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\bin\Debug\net8.0\EjemploHerencia.pdb
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.AssemblyInfoInputs.cache
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.AssemblyInfo.cs
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.sourcelink.json
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.dll
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\refint\EjemploHerencia.dll
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.pdb
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\EjemploHerencia.genruntimeconfig.cache
+C:\Users\Alumno\Desktop\DAM\Horas Libre Configuración\Ejemplos\EjemploHerencia\EjemploHerencia\EjemploHerencia\obj\Debug\net8.0\ref\EjemploHerencia.dll

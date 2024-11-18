@@ -1,0 +1,51 @@
+package application;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+
+public class SampleController {
+	
+	public TextField txtNum1;
+	public TextField txtNum2;
+	public TextField txtResultado;
+	public RadioButton rbSumar;
+	public RadioButton rbResta;
+	public RadioButton rbMultiplica;
+	public RadioButton rbDivide;
+	
+	public void btnOperar() {
+		try {
+			
+			int num1, num2, resultado = 0;
+			
+			num1 = Integer.parseInt(txtNum1.getText());
+			num2 = Integer.parseInt(txtNum2.getText());
+			System.out.println("Antes comprobar operacion");
+			if(rbSumar.isSelected())
+			{
+				System.out.println("probando");
+				resultado = num1 + num2; 
+			} else if (rbResta.isSelected()) {
+				resultado = num1 - num2;
+			} else if (rbMultiplica.isSelected())
+			{
+				resultado = num1 * num2;
+			}else if(rbDivide.isSelected()) {
+				resultado = num1 / num2;
+			}
+			System.out.println("Pasa por aqui");
+			txtResultado.setText(""+resultado);
+			
+		} catch (Exception e) {
+			System.out.println("Pasa por la excepcion");
+			Alert alerta = new Alert(AlertType.ERROR);
+			alerta.setHeaderText("Error en la suma");
+			alerta.setTitle("ERROR");
+			alerta.setContentText(e.toString());
+			alerta.setContentText("Formato incorrecto");
+		}
+	}
+	
+}

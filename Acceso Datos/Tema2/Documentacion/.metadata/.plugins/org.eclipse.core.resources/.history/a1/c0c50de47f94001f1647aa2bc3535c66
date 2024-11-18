@@ -1,0 +1,35 @@
+package fichero;
+
+import java.io.*;
+import java.util.ArrayList;
+
+public class Ficheros {
+    private static ArrayList<String> burros = new ArrayList<>(); // Hacer burros un atributo de la clase
+
+    public static void main(String[] args) {
+        String rutaArchivo = "C:\\Ficheritos\\Probando.txt"; // Cambia esto a la ruta de tu archivo
+        cargarFichero(rutaArchivo); // Llamar al método cargarFichero
+        
+        for (String burro : burros ) {
+        	
+			System.out.println(burro);
+			
+		}
+    }
+
+    public static void cargarFichero(String rutaArchivo) {
+        // Leer el contenido del archivo
+        try (FileReader fr = new FileReader(rutaArchivo);
+             BufferedReader br = new BufferedReader(fr)) { // Cerrar el paréntesis aquí
+             
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                burros.add(linea);
+            }
+        } 
+        catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+}
+
