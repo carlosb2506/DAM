@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -23,9 +24,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class SampleController {
-
-	// @FXML
-	// private StackPane contentPane;
 
 	@FXML
 	private AnchorPane contentPane;
@@ -65,14 +63,11 @@ public class SampleController {
 
 	@FXML
 	private Button btnArtista;
-	
-	
-		
+
 	DatosDAO datosDAO = new DatosDAO();
 	Album album;
 
 	public void initialize() {
-
 
 		colId.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getValue().getId()));
 		colTitulo.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getValue().getTitulo()));
@@ -82,16 +77,24 @@ public class SampleController {
 		treeTableView.setRoot(rootItem);
 		treeTableView.setShowRoot(false);
 
-
 		ObservableList<Artista> listaArtistas = DatosArtista.getInstance().getListaArtistas();
 		ObservableList<String> nombresArtistas = FXCollections
 				.observableArrayList(listaArtistas.stream().map(Artista::getNombre).toList());
-
 		spnArtista.setValueFactory(new SpinnerValueFactory.ListSpinnerValueFactory<>(nombresArtistas));
 
 		btnAdd.setOnAction(event -> aniadirAlbum());
 		btnModify.setOnAction(event -> modificarAlbum());
 		btnDelete.setOnAction(event -> eliminarAlbum());
+
+		try {
+			List<Album> albumesDesdeBD = datosDAO.mostrarAlbumes();
+			for (Album album : albumesDesdeBD) {
+				rootItem.getChildren().add(new TreeItem<>(album));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			mostrarAlerta("Error", "No se pudieron cargar los álbumes desde la base de datos.");
+		}
 	}
 
 	@FXML
@@ -117,7 +120,7 @@ public class SampleController {
 	@FXML
 	private void verAlbumes() {
 		try {
-			
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sample.fxml"));
 			Parent root = loader.load();
 
@@ -137,7 +140,7 @@ public class SampleController {
 
 	@FXML
 	private void aniadirAlbum() {
-		
+
 		String id = txtId.getText();
 		String titulo = txtTitulo.getText();
 		String artista = spnArtista.getValue();
@@ -162,7 +165,7 @@ public class SampleController {
 
 	@FXML
 	private void modificarAlbum() {
-		
+
 		TreeItem<Album> selectedItem = treeTableView.getSelectionModel().getSelectedItem();
 		if (selectedItem != null) {
 			Album album = selectedItem.getValue();
@@ -173,7 +176,7 @@ public class SampleController {
 			Album albumNuevo = new Album(txtId.getText(), txtTitulo.getText(), spnArtista.getValue());
 
 			treeTableView.refresh();
-			
+
 			try {
 				datosDAO.modificarCancion(album, albumNuevo);
 			} catch (SQLException e) {
@@ -182,23 +185,28 @@ public class SampleController {
 			}
 		}
 	}
-	
+
 	@FXML
 	private void eliminarAlbum() {
-	    TreeItem<Album> selectedItem = treeTableView.getSelectionModel().getSelectedItem();
-	    if (selectedItem != null) {
-	        Album albumSeleccionado = selectedItem.getValue();  // Obtener el objeto `Album` del TreeItem
-	        
-	        // Eliminar el álbum del TreeTableView
-	        treeTableView.getRoot().getChildren().remove(selectedItem);
+		TreeItem<Album> selectedItem = treeTableView.getSelectionModel().getSelectedItem();
+		if (selectedItem != null) {
+			Album albumSeleccionado = selectedItem.getValue();
 
-	        // Eliminar el álbum de la base de datos
-	        try {
-	            datosDAO.eliminarCancion(albumSeleccionado);  // Pasamos el objeto `Album` al método eliminarAlbum
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
-	    }
+			treeTableView.getRoot().getChildren().remove(selectedItem);
+
+			try {
+				datosDAO.eliminarCancion(albumSeleccionado);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void mostrarAlerta(String titulo, String mensaje) {
+		Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+		alerta.setTitle(titulo);
+		alerta.setContentText(mensaje);
+		alerta.showAndWait();
 	}
 
 }

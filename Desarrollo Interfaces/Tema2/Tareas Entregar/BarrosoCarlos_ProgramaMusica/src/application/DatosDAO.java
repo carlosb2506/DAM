@@ -128,8 +128,8 @@ private Connection conexion;
 
         return canciones;
     }
-
-    public boolean existeMusica(int id) throws SQLException {
+    
+    public void guardarArtista(Artista artista) throws SQLException {
     	
     	try {
 			this.conectar();
@@ -144,13 +144,101 @@ private Connection conexion;
 			e.printStackTrace();
 		}
     	
-        String sql = "SELECT * FROM canciones WHERE id = ?";
+        String sql = "INSERT INTO artistas (id_artista, nombre) VALUES (?, ?)";
+
         PreparedStatement sentencia = conexion.prepareStatement(sql);
-        ResultSet resultado = sentencia.executeQuery();
+        sentencia.setString(1, artista.getId());
+        sentencia.setString(2, artista.getNombre());
+        sentencia.executeUpdate();
         
         this.desconectar();
-        
-        return resultado.next();
     }
+    
+    public void eliminarArtista(Artista artista) throws SQLException {
+    	try {
+			this.conectar();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        String sql = "DELETE FROM artistas WHERE id_artista = ?";
 
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setString(1, artista.getId());
+        sentencia.executeUpdate();
+        
+        this.desconectar();
+    }
+    
+    public void modificarArtista(Artista artista) throws SQLException {
+        try {
+            this.conectar();
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+            throw new SQLException("Error al conectar con la base de datos.", e);
+        }
+
+        String sql = "UPDATE artistas SET nombre = ? WHERE id_artista = ?";
+        
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setString(1, artista.getNombre());
+        sentencia.setString(2, artista.getId());
+        sentencia.executeUpdate();
+
+        this.desconectar();
+    }
+    
+    public List<Artista> mostrarArtistas() throws SQLException {
+        List<Artista> artistas = new ArrayList<>();
+        try {
+            this.conectar();
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+            throw new SQLException("Error al conectar con la base de datos.", e);
+        }
+
+        String sql = "SELECT * FROM artistas";
+
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        ResultSet resultado = sentencia.executeQuery();
+
+        while (resultado.next()) {
+            String id = resultado.getString("id_artista");
+            String nombre = resultado.getString("nombre");
+            artistas.add(new Artista(id, nombre));
+        }
+
+        this.desconectar();
+        return artistas;
+    }
+    public List<Album> mostrarAlbumes() throws SQLException {
+        List<Album> albumes = new ArrayList<>();
+        try {
+            this.conectar();
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+            throw new SQLException("Error al conectar con la base de datos.", e);
+        }
+
+        String sql = "SELECT * FROM canciones";
+
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        ResultSet resultado = sentencia.executeQuery();
+
+        while (resultado.next()) {
+            String id = resultado.getString("id");
+            String titulo = resultado.getString("titulo");
+            String artista = resultado.getString("artista");
+            albumes.add(new Album(id, titulo, artista));
+        }
+
+        this.desconectar();
+        return albumes;
+    }
 }
