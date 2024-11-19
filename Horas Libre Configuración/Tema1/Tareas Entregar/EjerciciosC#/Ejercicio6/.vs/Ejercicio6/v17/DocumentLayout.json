@@ -1,9 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\",
+  "WorkspaceRootPath": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\cbarl\\desktop\\dam\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\alumno\\desktop\\2\u00BA curso\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|solutionrelative:personaje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\alumno\\desktop\\2\u00BA curso\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\sacerdote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|solutionrelative:sacerdote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\alumno\\desktop\\2\u00BA curso\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\constantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|solutionrelative:constantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\alumno\\desktop\\2\u00BA curso\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\curandero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|solutionrelative:curandero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|c:\\users\\alumno\\desktop\\2\u00BA curso\\horas libre configuraci\u00F3n\\tema1\\tareas entregar\\ejerciciosc#\\ejercicio6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C74005F-ED4D-43A3-9F43-4A2F7C3116B9}|Ejercicio6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,17 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Curandero.cs",
+              "DocumentMoniker": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Curandero.cs",
+              "RelativeDocumentMoniker": "Curandero.cs",
+              "ToolTip": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Curandero.cs",
+              "RelativeToolTip": "Curandero.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T09:42:54.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Constantes.cs",
+              "DocumentMoniker": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Constantes.cs",
+              "RelativeDocumentMoniker": "Constantes.cs",
+              "ToolTip": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Constantes.cs",
+              "RelativeToolTip": "Constantes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T09:39:05.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sacerdote.cs",
+              "DocumentMoniker": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Sacerdote.cs",
+              "RelativeDocumentMoniker": "Sacerdote.cs",
+              "ToolTip": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Sacerdote.cs",
+              "RelativeToolTip": "Sacerdote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T09:29:07.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Personaje.cs",
+              "DocumentMoniker": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Personaje.cs",
+              "RelativeDocumentMoniker": "Personaje.cs",
+              "ToolTip": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Personaje.cs",
+              "RelativeToolTip": "Personaje.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAuwG0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T09:26:27.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Program.cs",
+              "ToolTip": "C:\\Users\\Alumno\\Desktop\\2\u00BA CURSO\\Horas Libre Configuraci\u00F3n\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T16:34:14.592Z",
               "EditorCaption": ""
