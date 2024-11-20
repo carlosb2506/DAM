@@ -25,7 +25,12 @@ public class Test {
 		Evento e1 = eventoDAO.getEvento(5398);
 		System.out.println(e1);
 //
-		entradaDAO.comprar(p1, e1); // insertar entrada e insertar compra
+		try {
+			entradaDAO.comprarBien(p1, e1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // insertar entrada e insertar compra
 //		entradaDAO.comprar(p2, e1);
 //		entradaDAO.comprar(p3, e1);
 		

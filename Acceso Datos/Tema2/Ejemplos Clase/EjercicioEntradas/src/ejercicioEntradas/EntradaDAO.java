@@ -114,13 +114,12 @@ public class EntradaDAO {
 
 	public void comprar(Persona per, Evento ev) {
 		// Poner el autocommit a falso
-        // con.setAutoCommit(false);
+		// con.setAutoCommit(false);
 		// Insertar Compra
 		int codCompra = newCodCompra();
 		insertCompra(new Compra(codCompra, ev.getPrecio()));
 		// Insertar Entrada
-		insertEntrada(new Entrada(newCodEnt(ev), per.getDni(),
-				 ev.getCodEv(), codCompra));
+		insertEntrada(new Entrada(newCodEnt(ev), per.getDni(), ev.getCodEv(), codCompra));
 		// Commit si todo ha ido bien
 		// con.commit();
 		// Rollback si la ENTRADA no se ha insertado
@@ -128,44 +127,46 @@ public class EntradaDAO {
 		// con.rollback();
 	}
 
-	public void comprarBien(Persona per, Evento ev) {
+	public void comprarBien(Persona per, Evento ev) throws SQLException {
 		int codComp = newCodCompra();
 		Compra c = new Compra(codComp, ev.getPrecio());
 
 		Entrada ent = new Entrada(newCodEnt(ev), per.getDni(), ev.getCodEv(), codComp);
-		// Poner el autocommit a falso
-		// Esto hará que necesite un commit para guardar
 		
 		Connection con = Database.conectar();
-		con.setAutoCommit(false);
 		
-		// Insertar Compra
-		String sql = "INSERT INTO Compras (cod_comp, precio)" + "VALUES (?, ?);";
-		try (PreparedStatement ps = con.prepareStatement(sql)) {
-			int i = 1;
-			ps.setInt(i++, c.getCodComp());
-			ps.setDouble(i++, c.getPrecio());
-			ps.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		// Commit si todo ha ido bien
-		sql = "INSERT INTO Entradas " + "(cod_ent, dni, cod_ev, cod_comp)" + "VALUES (?, ?, ?, ?);";
-		try (PreparedStatement ps = con.prepareStatement(sql)) {
-			int i = 1;
-			ps.setInt(i++, ent.getCodEnt());
-			ps.setInt(i++, ent.getDni());
-			ps.setInt(i++, ent.getCodEv());
-			ps.setInt(i++, ent.getCodComp());
-			ps.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try (con){
+			
+			con.setAutoCommit(false);
 
-		// Rollback si la hemos cagao
+			String sql = "INSERT INTO Compras (cod_comp, precio)" + "VALUES (?, ?);";
+			PreparedStatement ps = con.prepareStatement(sql);
+				int i = 1;
+				ps.setInt(i++, c.getCodComp());
+				ps.setDouble(i++, c.getPrecio());
+				ps.execute();
+			
+			sql = "INSERT INTO Entradas " + "(cod_ent, dni, cod_ev, cod_comp)" + "VALUES (?, misco , ?, ?);";
+			PreparedStatement psEntrada = con.prepareStatement(sql);
+
+				//i = 1;
+				psEntrada.setInt(1, ent.getCodEnt());
+				psEntrada.setInt(2, ent.getDni());
+				psEntrada.setInt(3, ent.getCodEv());
+				psEntrada.setInt(4, ent.getCodComp());
+				psEntrada.execute();
+				
+				con.commit();
+				System.out.println("COMMIT REALIZADO");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			con.rollback();
+			System.out.println("ROLLBACK REALIZADO");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void comprar(ArrayList<Persona> familia, Evento ev) {
