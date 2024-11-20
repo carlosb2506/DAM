@@ -1,12 +1,10 @@
 package com.example.recyclerviewejemplo;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +37,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Re
         return lista.size();
     }
 
-    public class RecyclerAdaptadorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class RecyclerAdaptadorViewHolder extends RecyclerView.ViewHolder
     {
         private TextView tv_nombre;
         private TextView tv_apellido;
@@ -48,32 +46,12 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Re
             super(itemView);
             tv_nombre = itemView.findViewById(R.id.tv_nombre);
             tv_apellido = itemView.findViewById(R.id.tv_apellido);
-
-            itemView.setOnClickListener(this);
         }
 
         public void bind (int posicion)
         {
             tv_nombre.setText(lista.get(posicion).getNombre());
             tv_apellido.setText(lista.get(posicion).getApellido());
-        }
-
-        @Override
-        public void onClick(View view) {
-
-            int posicion;
-            Toast.makeText(view.getContext(), tv_nombre.getText().toString(), Toast.LENGTH_LONG).show();
-            if (tv_nombre.getCurrentTextColor() == Color.RED){
-                tv_nombre.setTextColor(Color.WHITE);
-            }
-            else
-                tv_nombre.setTextColor(Color.RED);
-
-            posicion = getAdapterPosition();
-
-            lista.get(posicion).setNombre("Pepito");
-
-            notifyDataSetChanged();
         }
     }
 }
