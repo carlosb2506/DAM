@@ -1,5 +1,6 @@
 package com.example.ejercicio1;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +35,18 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         holder.bind(position);
     }
 
+    //Borrar el elemento de la lista
+    public void borrar(int posicion){
+        lista.remove(posicion);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return lista.size();
     }
 
-    public  class  ViewHolder extends RecyclerView.ViewHolder{
+    public  class  ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         private CheckBox cbMarcado;
         private ImageView ivImage;
@@ -51,17 +58,19 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             cbMarcado = itemView.findViewById(R.id.cbMarcado);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDispositivo = itemView.findViewById(R.id.tvTexto);
+            itemView.setOnCreateContextMenuListener(this);
 
             cbMarcado.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    int position = getAdapterPosition();
                     if (cbMarcado.isChecked())
                     {
-
+                        lista.get(position).setMarcado(true);
                     }
                     else
                     {
-
+                        lista.get(position).setMarcado(false);
                     }
                 }
             });
@@ -75,5 +84,10 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             tvDispositivo.setText(lista.get(posicion).getDispositivo());
         }
 
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Elija una opción");
+            contextMenu.add(this.getAdapterPosition(),100,0,"Borrar");
+        }
     }
 }

@@ -2,8 +2,11 @@ package com.example.ejercicio1;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -55,15 +58,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clc(View view){
-
+        String mensajito = "";
         for (Dispositivos disp : listaDispositivos) {
 
             if (disp.isMarcado()){
+                mensajito += disp.getDispositivo().toString() + " ";
                 Log.d("TAG", "va bien esto");
+
             }
             else
                 Log.d("TAG", "no va bien esto");
+
         }
+        Toast.makeText(this,mensajito, Toast.LENGTH_LONG). show();
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item)
+    {
+        boolean modificado = false;
+        switch (item.getItemId()){
+            case 100:
+                adaptador.borrar(item.getGroupId());
+                modificado = true;
+            default:
+                modificado = super.onContextItemSelected(item);
+        }
+        return  modificado;
     }
 
 
