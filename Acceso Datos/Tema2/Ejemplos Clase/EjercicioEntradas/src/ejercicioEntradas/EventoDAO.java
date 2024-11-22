@@ -46,8 +46,19 @@ public class EventoDAO {
 		return null;
 	}
 
-	public void updateEvento(Evento evento) {
-
+	public void updateEvento(Evento evento, double nuevoPrecio) {
+		int idEvento = evento.getCodEv();
+		String sql = "UPDATE Eventos SET precio = ? WHERE cod_ev = ?;";
+		try (Connection con = Database.conectar();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			int i = 1;
+			ps.setDouble(i++, nuevoPrecio);
+			ps.setInt(i++, idEvento);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void deleteEvento(int codEv) {

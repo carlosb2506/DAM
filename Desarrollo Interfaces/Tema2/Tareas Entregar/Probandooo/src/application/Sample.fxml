@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <Pane prefHeight="343.0" prefWidth="322.0" BorderPane.alignment="CENTER">
+         <children>
+            <Slider fx:id="slider" layoutX="271.0" layoutY="102.0" orientation="VERTICAL" onMouseDragged="#funcionSlider" />
+            <ProgressBar fx:id="pb1" layoutX="42.0" layoutY="224.0" prefWidth="200.0" progress="100" />
+            <ProgressBar fx:id="pb2" layoutX="42.0" layoutY="199.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="pb3" layoutX="42.0" layoutY="172.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="pb4" layoutX="42.0" layoutY="147.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="pb5" layoutX="42.0" layoutY="122.0" prefWidth="200.0" progress="0.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
+

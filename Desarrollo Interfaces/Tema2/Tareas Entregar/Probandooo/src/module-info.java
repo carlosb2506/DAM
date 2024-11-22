@@ -1,6 +1,7 @@
-module BarrosoCarlos_Practica3 {
+module Probandooo {
 	requires javafx.controls;
 	requires javafx.fxml;
+	requires java.desktop;
 	
 	opens application to javafx.graphics, javafx.fxml;
 }

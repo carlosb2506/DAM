@@ -40,6 +40,8 @@ public class Test {
 		
 		//eventoDAO.insertEvento(new Evento(2854, "GRANADA LATINA FESTIVAL", "CORTIJO DEL CONDE", 75));
 		eventoDAO.deleteEvento(2854);
+		
+		eventoDAO.updateEvento(e1, 0.87);
 	}
 
 }

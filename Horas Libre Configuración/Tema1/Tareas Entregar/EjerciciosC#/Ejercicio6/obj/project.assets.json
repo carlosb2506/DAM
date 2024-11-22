@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\2º CURSO\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
+      "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
       "projectName": "Ejercicio6",
-      "projectPath": "C:\\Users\\Alumno\\Desktop\\2º CURSO\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
+      "projectPath": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
       "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alumno\\Desktop\\2º CURSO\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\obj\\",
+      "outputPath": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",

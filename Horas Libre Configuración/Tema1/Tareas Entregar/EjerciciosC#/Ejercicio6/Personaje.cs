@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Personaje
+public abstract class Personaje
 {
     private string nombre;
     private int energia;
@@ -57,6 +57,8 @@ public class Personaje
         return defendido;
     }
 
+    public abstract int Atacar();
+
     public void RecibirGolpe(int golpe)
     {
         string mensajeInformativo = "El personaje " + Nombre + " ha muerto";
@@ -105,9 +107,14 @@ public class Personaje
         return superviviente;
     }
 
-    public void Comer()
+    public  void Comer()
     {
         Energia += Energia / 2;
+    }
+
+    public override string ToString()
+    {
+        return "NOMBRE: " + Nombre + " VIDA: " + Vida + " ENERGIA: " + Energia;
     }
 
 }

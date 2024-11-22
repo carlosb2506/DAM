@@ -146,7 +146,7 @@ public class EntradaDAO {
 				ps.setDouble(i++, c.getPrecio());
 				ps.execute();
 			
-			sql = "INSERT INTO Entradas " + "(cod_ent, dni, cod_ev, cod_comp)" + "VALUES (?, misco , ?, ?);";
+			sql = "INSERT INTO Entradas " + "(cod_ent, dni, cod_ev, cod_comp)" + "VALUES (?, ?, ?, ?);";
 			PreparedStatement psEntrada = con.prepareStatement(sql);
 
 				//i = 1;
