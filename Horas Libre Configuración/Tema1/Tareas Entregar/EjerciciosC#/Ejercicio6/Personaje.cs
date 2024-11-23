@@ -19,8 +19,8 @@ public abstract class Personaje
 
     public int Energia
     {
-        get { return vida; }
-        set { vida = value; }
+        get { return energia; }
+        set { energia = value; }
     }
 
     public int Vida

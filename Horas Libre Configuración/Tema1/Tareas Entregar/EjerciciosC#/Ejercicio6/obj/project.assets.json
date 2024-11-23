@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Alumno\\.nuget\\packages\\": {}
+    "C:\\Users\\cbarl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
+      "projectUniqueName": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
       "projectName": "Ejercicio6",
-      "projectPath": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
-      "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alumno\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\obj\\",
+      "projectPath": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\Ejercicio6.csproj",
+      "packagesPath": "C:\\Users\\cbarl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cbarl\\Desktop\\DAM\\Horas Libre Configuración\\Tema1\\Tareas Entregar\\EjerciciosC#\\Ejercicio6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cbarl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
