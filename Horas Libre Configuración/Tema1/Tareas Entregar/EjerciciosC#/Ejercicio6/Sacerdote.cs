@@ -12,14 +12,13 @@ public class Sacerdote:Personaje, Interface1
     }
 
     public override int Atacar()
-    {
-        int energiaActual = base.Energia;
+    {;
         int golpe;
 
         Random random = new Random();
 
-        golpe = random.Next((int)(0.25 * energiaActual), (int)(0.75 * energiaActual));
-        energiaActual -= (energiaActual - golpe);
+        golpe = random.Next((int)(0.25 * base.Energia), (int)(0.75 * base.Energia));
+        base.Energia -= (base.Energia - golpe);
 
         return golpe;
     }

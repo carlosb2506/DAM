@@ -56,7 +56,7 @@ public class Gestiones
         int i = 0;
         while ((curador == null || curado == null))
         {
-            Personaje buscando = (Personaje)personajes[i];
+            Personaje buscando = (Personaje) personajes[i];
             if (buscando.Nombre.Equals(personajeCurador))
             {
                 curador = buscando;
@@ -96,41 +96,50 @@ public class Gestiones
 
     public void Curarse(string personajeCurar)
     {
+        Console.WriteLine("Entra en curarse");
         Personaje curador = null;
-        int curacion;
         int i = 0;
-        while (curador == null)
+
+        // Buscar el personaje curador
+        while (curador == null && i < personajes.Count)
         {
             Personaje buscando = (Personaje)personajes[i];
             if (buscando.Nombre.Equals(personajeCurar))
             {
                 curador = buscando;
             }
-        }
-        if (!curador.EstaVivo())
-        {
-            Console.WriteLine("EL PERSONAJE QUE QUIERES QUE SE CURE ESTA FALLECIDO");
+            i++;
         }
 
-        else
+        // Verificar si se encontró el personaje curador
+        if (curador == null)
         {
+            Console.WriteLine("El personaje que quieres que se cure no existe.");
+            return;
+        }
 
-            if (curador is Sacerdote)
+        // Verificar si el personaje curador está vivo
+        if (curador.EstaVivo())
+        {
+            Console.WriteLine("COMPROBAMOS QUE ESTA VIVO");
+            if (curador.GetType() == typeof(Sacerdote))
             {
+                Console.WriteLine("Entra en es sacerdote");
                 ((Sacerdote)curador).Curar();
             }
-            else if (curador is Curandero)
+            else if (curador.GetType() == typeof(Curandero))
             {
+                Console.WriteLine("Entra en es curandero");
                 ((Curandero)curador).Curar();
             }
-            else
-            {
-                ((Curandero)curador).Curar();
-            }
-                Console.WriteLine(curador.Nombre + " SE CURÓ");
-            
+            Console.WriteLine(curador.Nombre + " SE CURÓ");
+        }
+        else
+        {
+            Console.WriteLine("EL PERSONAJE QUE SE QUIERE CURAR ESTA MUERTO");
         }
     }
+
 
     public void MostrarEstado()
     {

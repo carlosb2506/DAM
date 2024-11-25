@@ -61,7 +61,7 @@ public abstract class Personaje
 
     public void RecibirGolpe(int golpe)
     {
-        string mensajeInformativo = "El personaje " + Nombre + " ha muerto";
+        string mensajeInformativo = "EL PERSONAJE " + Nombre + " HA FALLECIDO";
         if (EstaVivo())
         {
             if (Defender())
@@ -109,13 +109,12 @@ public abstract class Personaje
 
     public  void Comer()
     {
-        Energia += Energia / 2;
+        Energia += (Energia / 2);
     }
 
     public override string ToString()
     {
         return "NOMBRE: " + Nombre + " VIDA: " + Vida + " ENERGIA: " + Energia;
     }
-
 }
 
