@@ -1,4 +1,4 @@
-module Componente {
+module ProbandoComponente {
 	requires javafx.controls;
 	requires javafx.fxml;
 	

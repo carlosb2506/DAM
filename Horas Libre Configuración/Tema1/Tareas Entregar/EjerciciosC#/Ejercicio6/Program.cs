@@ -37,5 +37,11 @@ gestiones.CurarPersonaje("CURANDERO1", "SACERDOTE1");
 
 gestiones.Curarse("SACERDOTE2");
 
+// Sacerdote1 ataca a Curandero1
+gestiones.AtacarPersonaje("SACERDOTE1", "CURANDERO1");
+
+// Sacerdote2 ataca a Curandero2
+gestiones.AtacarPersonaje("SACERDOTE2", "CURANDERO2");
+
 Console.WriteLine("ESTADO:");
 gestiones.MostrarEstado();

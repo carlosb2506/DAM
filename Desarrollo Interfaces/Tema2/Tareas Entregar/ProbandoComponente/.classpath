@@ -6,6 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/DAM/Desarrollo Interfaces/Tema2/Tareas Entregar/Componente/jar/miComponente.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Javafx23">
 		<attributes>
 			<attribute name="module" value="true"/>
