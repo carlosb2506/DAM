@@ -6,33 +6,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MOSE {
+public class DatosDAO {
 	
-	public static void mostrarJuegosUser() {
-		System.out.println("DIME EL NOMBRE DE USUARIO PARA MOSTRARTE LOS JUEGOS: ");
-		String nomUs = System.console().readLine();
-		
+	public static ArrayList<Juegos> getJuegosUser(String u) {
+	    ArrayList<Juegos> juegos = new ArrayList<Juegos>();
+
 	    try (Connection con = DatabaseDAO.conectar()) {
 	        String sql = "SELECT * FROM Biblioteca WHERE userid = ?;";
-	        
 	        PreparedStatement ps = con.prepareStatement(sql);
-	        ps.setString(1, nomUs);
-	        
+	        ps.setString(1, u);   
 	        ResultSet rs = ps.executeQuery();
 	        boolean juegosEncontrados = false;
-	        
-	        while (rs.next()) {
-	            juegosEncontrados = true;
-	            System.out.println("Juego : " + rs.getString("juego"));
+
+	        while (rs.next()) 
+	        { 
+	        	juegosEncontrados = true;
+	        	String aniadir = (rs.getString("juego")); 
+	        	juegos.add(aniadir);
 	        }
-	        
+
 	        if (!juegosEncontrados) {
 	            System.out.println("No se encontraron juegos para ese usuario.");
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    return juegos;
 	}
+
+	
+	public static Usuario getUsuario(String userId) {
+		return null;
+	}
+	
+	
+	
+	
 	
 	public static void mostrarUserJuego() {
 		System.out.println("DIME EL NOMBRE DEL JUEGO PARA MOSTRARTE QUIEN LOS TIENE: ");

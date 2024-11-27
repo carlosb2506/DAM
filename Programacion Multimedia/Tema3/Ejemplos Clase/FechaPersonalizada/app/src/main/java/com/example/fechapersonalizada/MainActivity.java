@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+            }45
 
             @Override
             public void afterTextChanged(Editable editable) {

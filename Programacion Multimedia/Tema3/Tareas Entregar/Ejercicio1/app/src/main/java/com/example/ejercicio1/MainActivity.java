@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         for (Dispositivos disp : listaDispositivos) {
 
             if (disp.isMarcado()){
-                mensajito += disp.getDispositivo().toString() + " ";
+                mensajito += " | " + disp.getDispositivo().toString();
                 Log.d("TAG", "va bien esto");
 
             }

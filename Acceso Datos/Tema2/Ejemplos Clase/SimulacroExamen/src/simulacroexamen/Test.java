@@ -1,18 +1,14 @@
 package simulacroexamen;
 
+import java.util.ArrayList;
+
 public class Test {
 	
 	public static void main(String[] args) {
-		MOSE nose = new MOSE();
 		
-		System.out.println("DIME EL NOMBRE DEL USUARIO QUE DESEAS AÑADIR SALDO: ");
-		String nomUser = System.console().readLine();
-		System.out.println("DIME EL SALDO QUE DESEAS AÑADIR: ");
-		double saldoAniadir = Double.parseDouble(System.console().readLine());
+		Usuario u1 = DatosDAO.getUsuario("Juampi25");
 		
-		nose.recargaSaldo(nomUser, saldoAniadir);
-		
-		
+		ArrayList<Juegos> juegos = DatosDAO.getJuegosUser(u1.getUserid());
 	}
 
 }
