@@ -1,5 +1,7 @@
 package componente;
 
+import javax.print.attribute.standard.PrinterMessageFromOperator;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
@@ -9,15 +11,15 @@ import javafx.scene.layout.Pane;
 public class SampleController {
 
 	@FXML
-	private ProgressBar pb1;
+	public ProgressBar pb1;
 	@FXML
-	private ProgressBar pb2;
+	public ProgressBar pb2;
 	@FXML
-	private ProgressBar pb3;
+	public ProgressBar pb3;
 	@FXML
-	private ProgressBar pb4;
+	public ProgressBar pb4;
 	@FXML
-	private ProgressBar pb5;
+	public ProgressBar pb5;
 
 	@FXML
 	private Slider slider;
@@ -36,8 +38,8 @@ public class SampleController {
 		pb4.setVisible(false);
 		pb5.setVisible(false);
 		slider.setVisible(false);
-
 	}
+	
 
 	@FXML
 	public void funcionSlider(MouseEvent event) {
@@ -82,5 +84,25 @@ public class SampleController {
 				progressBars[i].setVisible(false);
 			}
 		}
+	}
+
+	public boolean pb1Visible() {
+		return pb1.isVisible();
+	}
+
+	public boolean pb2Visible() {
+		return pb2.isVisible();
+	}
+
+	public boolean pb3Visible() {
+		return pb3.isVisible();
+	}
+
+	public boolean pb4Visible() {
+		return pb4.isVisible();
+	}
+
+	public boolean pb5Visible() {
+		return pb5.isVisible();
 	}
 }

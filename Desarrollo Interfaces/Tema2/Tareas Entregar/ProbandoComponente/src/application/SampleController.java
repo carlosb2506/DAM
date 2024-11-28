@@ -13,16 +13,42 @@ public class SampleController {
 	@FXML
 	private Circle circulito;
 	
-	@FXML
-	public void cambiarColorCirculo(MouseEvent event) {
-	    double x = event.getX();
-	    double y = event.getY();
-	    System.out.println("Clic en: (" + x + ", " + y + ")");
+	public void initialize() {
+		System.out.println("inicializa");
+		
+		try {
+			addListener(miComponenteController.pb1);
+			addListener(miComponenteController.pb2);
+			addListener(miComponenteController.pb3);
+			addListener(miComponenteController.pb4);
+			addListener(miComponenteController.pb5);
 
-	    Color color = Color.rgb((int) (x % 255), (int) (y % 255), (int) ((x + y) % 255));
-	    System.out.println("Color generado: " + color.toString());
-	    circulito.setFill(color);
+			cambiarColorCirculo();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
+		private void addListener(ProgressBar progressbar) {
+			progressbar.visibleProperty().addListener((observable, oldValue, newValue) -> cambiarColorCirculo());
+		}
 	
+	
+	public void cambiarColorCirculo() {
+		
+		if (miComponenteController.pb1Visible()) {
+			circulito.setFill(javafx.scene.paint.Color.RED);
+		}
+		if (miComponenteController.pb2Visible()) {
+			circulito.setFill(javafx.scene.paint.Color.ORANGE);
+		}
+		if (miComponenteController.pb3Visible()) {
+			circulito.setFill(javafx.scene.paint.Color.YELLOW);
+		}  if (miComponenteController.pb4Visible()) {
+			circulito.setFill(javafx.scene.paint.Color.GREEN);
+		}  if (miComponenteController.pb5Visible()) {
+			circulito.setFill(javafx.scene.paint.Color.BLUE);
+		}	
+	}
 }
