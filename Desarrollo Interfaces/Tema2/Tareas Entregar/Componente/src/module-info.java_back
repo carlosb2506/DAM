@@ -1,6 +1,0 @@
-module Componente {
-	requires javafx.controls;
-	requires javafx.fxml;
-	
-	opens componente to javafx.graphics, javafx.fxml;
-}
