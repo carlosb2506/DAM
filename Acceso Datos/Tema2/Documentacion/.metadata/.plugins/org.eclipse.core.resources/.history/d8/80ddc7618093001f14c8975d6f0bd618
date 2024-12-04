@@ -1,0 +1,53 @@
+package fichero;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ficheros {
+	public static void main(String[] args) {
+
+		String rutaArchivo = "C:\\Ficheritos\\Probando.txt"; // Cambia esto a la ruta de tu archivo
+		List<String> burros = new ArrayList<>();
+
+		// Leer el contenido del archivo
+		try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+			String linea;
+			while ((linea = br.readLine()) != null) {
+				burros.add(linea);
+			}
+		} catch (IOException e) {
+			System.err.println("Error al leer el archivo: " + e.getMessage());
+		}
+
+		// Crear un Scanner para leer la entrada del usuario
+		Scanner scanner = new Scanner(System.in);
+
+		// Pedir datos del nuevo burro
+		System.out.print("Introduce el nombre del burro: ");
+		String nombre = scanner.nextLine();
+
+		System.out.print("Introduce la edad del burro: ");
+		int edad = scanner.nextInt();
+
+		System.out.print("Introduce la altura del burro: ");
+		double altura = scanner.nextDouble();
+
+		// Añadir los datos del nuevo burro al ArrayList
+		burros.add("Nombre: " + nombre + ", Edad: " + edad + ", Altura: " + altura);
+
+		// Volcar todo de nuevo al archivo
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))) {
+			for (String burro : burros) {
+				bw.write(burro);
+				bw.newLine(); // Añadir nueva línea después de cada entrada
+			}
+		} catch (IOException e) {
+			System.err.println("Error al escribir en el archivo: " + e.getMessage());
+		}
+
+		// Cerrar el escáner
+		scanner.close();
+	}
+}
