@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\cbarl\Desktop\DESARROLLO APLICACIONES MULTIPLATAFORMA\Acceso Datos\Documentacion\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-580775570.index
-626347035.index
