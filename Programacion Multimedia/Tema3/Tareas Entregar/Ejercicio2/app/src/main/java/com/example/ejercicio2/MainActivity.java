@@ -55,4 +55,6 @@ public class MainActivity extends AppCompatActivity {
         lista.add(new Tareas("Ordenar", "30min", "Carlos, Alejandro", false));
         lista.add(new Tareas("Planchar", "1h", "Alejandro", false));
     }
+
+
 }
