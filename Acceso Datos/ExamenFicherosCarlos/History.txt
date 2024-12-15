@@ -1,0 +1,24 @@
+RESUMEN: [28/10/2024 , 10:15]
+Estación Estacion perdida, situada en 23, 24, está habitada por: Pepe, Maria.
+Estación Estacion encontrada, situada en 256, 254, está habitada por: Juan, Reyes.
+Estación Estacion destruida, situada en 2893, 234, está inhabitada.
+Estación South Station, situada en 38, 78, está habitada por: Bud, Johnny, Liss.
+Estación Lava tree, situada en 83, 90, está habitada por: Brandom, Bruce, Paco.
+Estación Degasi 18, situada en 17, 31, está inhabitada.
+
+RESUMEN: [28/10/2024 , 10:16]
+Estación Estacion perdida, situada en 23, 24, está habitada por: Pepe, Maria.
+Estación Estacion encontrada, situada en 256, 254, está habitada por: Juan, Reyes.
+Estación Estacion destruida, situada en 2893, 234, está inhabitada.
+Estación South Station, situada en 38, 78, está habitada por: Bud, Johnny, Liss.
+Estación Lava tree, situada en 83, 90, está habitada por: Brandom, Bruce, Paco.
+Estación Degasi 18, situada en 17, 31, está inhabitada.
+
+RESUMEN: [28/10/2024 , 10:18]
+Estación Estacion perdida, situada en 23, 24, está habitada por: Pepe, Maria.
+Estación Estacion encontrada, situada en 256, 254, está habitada por: Juan, Reyes.
+Estación Estacion destruida, situada en 2893, 234, está inhabitada.
+Estación South Station, situada en 38, 78, está habitada por: Bud, Johnny, Liss.
+Estación Lava tree, situada en 83, 90, está habitada por: Brandom, Bruce, Paco.
+Estación Degasi 18, situada en 17, 31, está inhabitada.
+
