@@ -1,6 +1,0 @@
-Estacion perdida;23, 24;Pepe Maria 
-Estacion encontrada;256, 254;Juan Reyes 
-Estacion destruida;2893, 234
-South Station;38, 78;Bud Johnny Liss 
-Lava tree;83, 90;Brandom Bruce Paco 
-Degasi 18;17, 31
