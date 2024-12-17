@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <Pane prefHeight="338.0" prefWidth="274.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCambiaColor" layoutX="64.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Cambia Color" />
+            <Pane fx:id="paneColor" layoutX="67.0" layoutY="159.0" prefHeight="140.0" prefWidth="140.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
