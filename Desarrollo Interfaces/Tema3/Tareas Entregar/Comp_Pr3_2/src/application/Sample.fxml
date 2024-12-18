@@ -6,10 +6,12 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <center>
-      <Pane prefHeight="338.0" prefWidth="274.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="450.0" prefWidth="359.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCambiaColor" layoutX="64.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Cambia Color" />
-            <Pane fx:id="paneColor" layoutX="67.0" layoutY="159.0" prefHeight="140.0" prefWidth="140.0" />
+            <Button fx:id="btnCambiaColor" layoutX="109.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Cambia Color" />
+            <Pane fx:id ="paneGrande" layoutX="80.0" layoutY="187.0" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="paneColor" layoutX="110.0" layoutY="216.0" prefHeight="140.0" prefWidth="140.0"/>
+
          </children>
       </Pane>
    </center>
