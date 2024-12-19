@@ -8,7 +8,7 @@
    <center>
       <Pane prefHeight="450.0" prefWidth="359.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCambiaColor" layoutX="109.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Cambia Color" />
+            <Button fx:id="btnCambiaColor" layoutX="109.0" onAction="#btnCambiaColor" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Cambia Color" />
             <Pane fx:id ="paneGrande" layoutX="80.0" layoutY="187.0" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="paneColor" layoutX="110.0" layoutY="216.0" prefHeight="140.0" prefWidth="140.0"/>
 
