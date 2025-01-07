@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Instagram</string>
+    <string name="tvDesc">Venta/Reparación de dispositivos móviles</string>
+    <string name="tvNumPubli">5</string>
+    <string name="tvNumSeguidores">29 mil</string>
+    <string name="tvNumSiguiendo">139</string>
+    <string name="tvPublicaciones">publicaciones</string>
+    <string name="tvSeguidores">seguidores</string>
+    <string name="tvSiguiendo">siguiendo</string>
+    <string name="tvUser">cbarlop_2506</string>
+    <style name="Base.Theme.Ejercicio3" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="ShapeAppearanceOverlay.App.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="Theme.Ejercicio3" parent="Base.Theme.Ejercicio3"/>
+</resources>
