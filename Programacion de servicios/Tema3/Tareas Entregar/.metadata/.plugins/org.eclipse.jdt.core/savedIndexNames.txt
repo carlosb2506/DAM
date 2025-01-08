@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Users\Alumno\Desktop\DAM\Programacion de servicios\Tema3\Tareas Entregar\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1164034386.index
+3697840360.index
+2848452312.index

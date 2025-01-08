@@ -3,4 +3,6 @@
     <string name="tvTitulo">Las Recetas de la Abuela</string>
     <string name="tvSubTitulo">Comiditas Caseras</string>
     <string name="btnVolver">VOLVER</string>
+    <string name="btnCancelar">CANCELAR</string>
+    <string name="btnAceptar">Aceptar</string>
 </resources>

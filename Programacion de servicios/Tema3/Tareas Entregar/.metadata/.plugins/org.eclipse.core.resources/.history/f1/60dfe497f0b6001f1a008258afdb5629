@@ -1,0 +1,53 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Servidor {
+    private static int contadorClientes = 0;
+
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(5000)) {
+            System.out.println("Servidor escuchando en el puerto 5000...");
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                contadorClientes++;
+                System.out.println("Cliente " + contadorClientes + " conectado");
+
+                new Thread(new ManejadorCliente(clientSocket, contadorClientes)).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class ManejadorCliente implements Runnable {
+    private Socket clientSocket;
+    private int clienteId;
+
+    public ManejadorCliente(Socket clientSocket, int clienteId) {
+        this.clientSocket = clientSocket;
+        this.clienteId = clienteId;
+    }
+
+    @Override
+    public void run() {
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            String mensajeCliente = in.readLine();
+            System.out.println("Mensaje recibido de Cliente " + clienteId + ": " + mensajeCliente);
+
+            OutputStream outputStream = clientSocket.getOutputStream();
+            outputStream.write("Mensaje recibido".getBytes());
+            outputStream.flush();
+
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

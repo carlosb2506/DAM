@@ -2,6 +2,7 @@ package com.example.recetario;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,24 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
     public RecyclerAdaptador(ArrayList<Recetas> lista, Context contexto) {
         this.lista = lista;
         this.contexto = contexto;
+    }
+
+    public void borrar(int posicion){
+        lista.remove(posicion);
+        notifyDataSetChanged();
+    }
+
+    public Recetas devolverRecetas(int posicion){
+        return lista.get(posicion);
+    }
+
+    public void modificarReceta(int posicion,int duracion,String pasos)
+    {
+        Recetas receta = lista.get(posicion);
+        receta.setPasos(pasos);
+        receta.setTiempo(duracion);
+        lista.set(posicion, receta);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -43,7 +62,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         return lista.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         private TextView tvReceta, tvDuracion, tvDificultad;
         private ImageView imReceta;
@@ -69,6 +88,8 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
                     contexto.startActivity(i);
                 }
             });
+
+            itemView.setOnCreateContextMenuListener(this);
         }
 
         public void bind(int posicion){
@@ -79,7 +100,12 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         }
 
 
-
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Seleccione una de las opciones:");
+            contextMenu.add(this.getAdapterPosition(), 121, 0, "Borrar");
+            contextMenu.add(this.getAdapterPosition(), 122, 0, "Modificar");
+        }
     }
 }
 

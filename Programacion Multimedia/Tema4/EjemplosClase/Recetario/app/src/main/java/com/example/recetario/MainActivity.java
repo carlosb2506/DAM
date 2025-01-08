@@ -1,8 +1,15 @@
 package com.example.recetario;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -17,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerAdaptador adaptador;
     private RecyclerView rvReceta;
     private ArrayList<Recetas> lista;
+    private ActivityResultLauncher intercambio;
 
 
     @Override
@@ -33,6 +41,23 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        //Recojo los resultados que me devuelve la actividad
+        intercambio = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult o) {
+                int duracion, posicion;
+                String pasos;
+                //Solo modificamos la lista si se ha hecho algun cambio y se ha pùlsado el boton aceptar
+                     if (o != null && o.getResultCode() == RESULT_OK)
+                     {
+                         duracion = o.getData().getIntExtra("Duracion",0);
+                         posicion = o.getData().getIntExtra("Posicion",0);
+                         pasos = o.getData().getStringExtra("Pasos");
+                         adaptador.modificarReceta(posicion,duracion,pasos);
+                     }
+            }
+        });
+
         rvReceta = findViewById(R.id.rvRecetas);
         rvReceta.setLayoutManager(layout);
 
@@ -45,4 +70,37 @@ public class MainActivity extends AppCompatActivity {
         rvReceta.setAdapter(adaptador);
     }
 
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        boolean devolver = true;
+        Intent i;
+        Recetas receta;
+        switch (item.getItemId()){
+            case 121:
+                //Borrar el registro seleccionado
+                adaptador.borrar(item.getGroupId());
+                break;
+            case 122:
+                //Modificar datos
+                int posicion = item.getGroupId();
+                i = new Intent(this, ModificarRecetas.class);
+                receta = adaptador.devolverRecetas(posicion);
+
+                i.putExtra("Nombre", receta.getNombre());
+                i.putExtra("Foto", receta.getFoto());
+                i.putExtra("Pasos", receta.getPasos());
+                i.putExtra("Duracion", receta.getTiempo());
+                i.putExtra("Posicion", posicion);
+                intercambio.launch(i);
+
+                break;
+            default:
+                devolver = super.onContextItemSelected(item);
+                break;
+
+
+        }
+
+        return devolver;
+    }
 }

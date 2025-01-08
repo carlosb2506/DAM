@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <TabPane prefHeight="454.0" prefWidth="633.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Datos Usuario">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="527.0" prefWidth="769.0">
+                     <children>
+                        <Label layoutX="34.0" layoutY="54.0" mouseTransparent="true" text="Apellidos y Nombre :">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <TextField layoutX="161.0" layoutY="50.0" opacity="0.46" prefHeight="25.0" prefWidth="241.0" />
+                        <Label layoutX="189.0" layoutY="108.0" text="Consumo" underline="true">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="148.0" text="En punta :">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <Label layoutX="161.0" layoutY="148.0" text="En llano :">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <Label layoutX="282.0" layoutY="148.0" text="En valle :">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <TextField layoutX="91.0" layoutY="144.0" opacity="0.46" prefHeight="25.0" prefWidth="48.0" />
+                        <TextField layoutX="217.0" layoutY="144.0" opacity="0.46" prefHeight="25.0" prefWidth="48.0" />
+                        <TextField layoutX="337.0" layoutY="144.0" opacity="0.46" prefHeight="25.0" prefWidth="48.0" />
+                        <Button layoutX="217.0" layoutY="312.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="59.0" text="Agregar" underline="true">
+                           <effect>
+                              <Lighting bumpInput="$null" light="$null" />
+                           </effect>
+                        </Button>
+                        <Label layoutX="34.0" layoutY="239.0" text="Mes :">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Label>
+                        <Spinner fx:id="mySpinner" layoutX="72.0" layoutY="235.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Datos Gráficos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
