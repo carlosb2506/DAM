@@ -1,51 +1,56 @@
 package com.example.ejercicio1;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private EditText etUser, etPassword;
-    private TextView tvNumFallos;
-    private Integer contador;
+public class MainActivity extends Activity {
+
+    private Button btnVolver;
+    private ArrayList<Parking> listaParking; // Especificar el tipo de elementos
+    private RecyclerView rvUbicaciones;
+    private RecyclerAdaptador adaptador;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        contador = 0;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState); // Llamar al super primero
 
-        etUser = findViewById(R.id.etUser);
-        etPassword = findViewById(R.id.etPassword);
-        tvNumFallos = findViewById(R.id.tvNumFallos);
+        setContentView(R.layout.layoutactividad2);
+
+        btnVolver = findViewById(R.id.btnVolver);
+        rvUbicaciones = findViewById(R.id.rvUbicaciones);
+        rvUbicaciones.setLayoutManager(new LinearLayoutManager(this));
+
+        llenarLista();
+        adaptador = new RecyclerAdaptador(listaParking);
+        rvUbicaciones.setAdapter(adaptador);
     }
 
-    public void Entrar(View view)
-    {
-        if ((etUser.getText().toString().equals("carlitos")) && (etPassword.getText().toString().equals("12345")))
-        {
-            Intent i = new Intent(this, Actividad2.class);
-            startActivity(i);
-        }
-        else
-        {
-            contador++;
-            tvNumFallos.setText(contador.toString());
-        }
+    // Metodo para llenar la lista de parkings
+    public void llenarLista() {
+        listaParking = new ArrayList<>(); // Uso del operador diamante
+        listaParking.add(new Parking(R.drawable.ubi, "Estación María Zambrano"));
+        listaParking.add(new Parking( R.drawable.ubi,"Plaza de la Marina"));
+        listaParking.add(new Parking(R.drawable.ubi,"Playa de la Malagueta"));
+        listaParking.add(new Parking(R.drawable.ubi,"Parque Tecnológico de Andalucía (PTA)"));
+        listaParking.add(new Parking(R.drawable.ubi,"Calle Larios y Centro Histórico"));
+        listaParking.add(new Parking(R.drawable.ubi,"Teatinos - Campus Universitario"));
+        listaParking.add(new Parking(R.drawable.ubi,"Plaza de la Merced"));
+        listaParking.add(new Parking(R.drawable.ubi,"Hospital Regional Universitario"));
+        listaParking.add(new Parking(R.drawable.ubi,"Avenida de Andalucía (Corte Inglés)"));
+        listaParking.add(new Parking(R.drawable.ubi,"Calle Alcazabilla"));
+    }
+
+    // Metodo para volver a la actividad anterior
+    public void volver(View view) {
+        finish();
     }
 }
+

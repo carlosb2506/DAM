@@ -29,8 +29,21 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="111dp"
         android:onClick="volver"
-        android:text="Button"
+        android:text="@string/btnVolver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvUbicaciones" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUbicaciones"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
