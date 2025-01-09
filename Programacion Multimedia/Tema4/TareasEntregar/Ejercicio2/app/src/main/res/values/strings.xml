@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ejercicio2</string>
+    <string name="tvTitulo">Registre su mascota</string>
+    <string name="etNombre">Nombre</string>
+    <string name="etPropietario">Propietario</string>
+    <string name="etEdad">Edad</string>
+    <string name="btnAgregar">Agregar</string>
+    <string name="tvTitulo2">!REGISTRADO CON EXITO¡</string>
+    <string name="tvNombre">NOMBRE: </string>
+    <string name="tvDueño">DUEÑO: </string>
+    <string name="tvEdad">EDAD: </string>
+    <string name="btnVolver">Volver</string>
+</resources>
