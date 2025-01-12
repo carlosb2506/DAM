@@ -22,7 +22,7 @@ public class Actividad1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_actividad1);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -39,7 +39,7 @@ public class Actividad1 extends AppCompatActivity {
     {
         if ((etUser.getText().toString().equals("carlitos")) && (etPassword.getText().toString().equals("12345")))
         {
-            Intent i = new Intent(this, MainActivity.class);
+            Intent i = new Intent(this, Actividad2.class);
             startActivity(i);
         }
         else

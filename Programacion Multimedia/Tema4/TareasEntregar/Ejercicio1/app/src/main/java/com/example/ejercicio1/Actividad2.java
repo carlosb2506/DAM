@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity {
+public class Actividad2 extends Activity {
 
     private Button btnVolver;
     private ArrayList<Parking> listaParking; // Especificar el tipo de elementos

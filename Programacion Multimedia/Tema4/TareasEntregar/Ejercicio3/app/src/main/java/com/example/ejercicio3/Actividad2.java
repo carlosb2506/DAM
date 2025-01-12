@@ -4,16 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity {
+public class Actividad2 extends Activity {
 
     private Button btnVolver;
     private ArrayList<Bar> listaBares; // Especificar el tipo de elementos
@@ -27,7 +25,7 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState); // Llamar al super primero
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_actividad2);
 
         btnVolver = findViewById(R.id.btnVolver);
         rvBares = findViewById(R.id.rvBares);

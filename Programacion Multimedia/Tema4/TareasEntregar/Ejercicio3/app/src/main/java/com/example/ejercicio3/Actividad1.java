@@ -31,7 +31,7 @@ public class Actividad1 extends AppCompatActivity {
 
     public void Entrar(View view)
     {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, Actividad2.class);
         startActivity(i);
     }
 }

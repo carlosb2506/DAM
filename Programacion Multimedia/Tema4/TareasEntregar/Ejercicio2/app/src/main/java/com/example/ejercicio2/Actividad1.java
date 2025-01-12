@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,16 +50,18 @@ public class Actividad1 extends AppCompatActivity {
         lista.add(new Registro(etNombre.getText().toString(), etPropietario.getText().toString(), etEdad.getText().toString()));
     }
 
-    public void registrar(View view)
-    {
-        if ((etNombre.getText().toString().isEmpty()) || (etEdad.getText().toString().isEmpty()) || (etPropietario.getText().toString().isEmpty()))
-        {
-
-        }
-        else {
-            Intent i = new Intent(this, MainActivity.class);
+    public void registrar(View view) {
+        if ((etNombre.getText().toString().isEmpty()) || (etEdad.getText().toString().isEmpty()) || (etPropietario.getText().toString().isEmpty())) {
+            Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent i = new Intent(this, Actividad2.class);
+            i.putExtra("Nombre", etNombre.getText().toString());
+            i.putExtra("Propietario", etPropietario.getText().toString());
+            i.putExtra("Edad", etEdad.getText().toString());
+            i.putExtra("Raza", spinner.getSelectedItem().toString());
             startActivity(i);
         }
     }
+
 
 }
