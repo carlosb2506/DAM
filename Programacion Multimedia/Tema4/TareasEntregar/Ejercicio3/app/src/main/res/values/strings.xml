@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ejercicio3</string>
+    <string name="tvTitulo">ALCALÁ DEL VALLE</string>
+    <string name="btnLugInt">Lugares de Interés</string>
+    <string name="btnComida">Restaurantes</string>
+    <string name="btnHospedaje">Donde Hospedarse</string>
+    <string name="btnCompras">Compras</string>
+    <string name="btnVolver">Volver</string>
+
+</resources>
