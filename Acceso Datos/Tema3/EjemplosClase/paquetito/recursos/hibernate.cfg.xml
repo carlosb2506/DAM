@@ -6,7 +6,7 @@
 			org.hibernate.community.dialect.SQLiteDialect</property>
 		<property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
 		<property name="hibernate.connection.url">
-			jdbc:sqlite:C:/PruebasJava/estudiantes_cursos.db</property>
+			jdbc:sqlite:C:/PruebasJava/estudiantes.db</property>
 		<property name="hibernate.show_sql">true</property>
 		<mapping class="org.apache.maven.paquetito.Estudiante" />
 	</session-factory>

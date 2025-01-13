@@ -13,6 +13,7 @@ public class Estudiante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "estudiante_id")
 	private int estudiante_id;
 	
 	@Column(name = "nombre")
@@ -22,11 +23,11 @@ public class Estudiante {
 	private String correo;
 	
 	
-	public int getId() {
-		return id;
+	public int getEstudianteId() {
+		return estudiante_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setEstudianteId(int id) {
+		this.estudiante_id = id;
 	}
 	public String getNombre() {
 		return nombre;
@@ -40,15 +41,15 @@ public class Estudiante {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public Estudiante(int id, String nombre, String correo) {
+	public Estudiante(int estudiante_id, String nombre, String correo) {
 		super();
-		this.id = id;
+		this.estudiante_id = estudiante_id;
 		this.nombre = nombre;
 		this.correo = correo;
 	}
 	@Override
 	public String toString() {
-		return "Estudiante [id=" + id + ", nombre=" + nombre + ", correo=" + correo + "]";
+		return "Estudiante [id=" + estudiante_id + ", nombre=" + nombre + ", correo=" + correo + "]";
 	}
 	public Estudiante() {
 		super();
