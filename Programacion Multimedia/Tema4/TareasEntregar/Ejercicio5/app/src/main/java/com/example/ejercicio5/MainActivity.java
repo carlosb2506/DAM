@@ -42,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void llenarLista() {
         listaProfes = new ArrayList<>(); // Uso del operador diamante
-        listaProfes.add(new Profesor("Carlos", "Barroso", "Informática", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Carlos", "Barroso", "Informática", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Ana", "Martínez", "Psicología", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Javier", "Mendoza", "Historia", "SUSTITUCIÓN"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Jose", "Pozo", "Lengua", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Jose Antonio", "Vázquez", "Matemáticas", "SUSTITUCION"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Rafael", "Ángulo", "Lengua", "SUSTITUCIÓN"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Juan", "Borrego", "Informática", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Jose", "Orellana", "Religión", "SUSTITUCIÓN"));
+
+
     }
 }

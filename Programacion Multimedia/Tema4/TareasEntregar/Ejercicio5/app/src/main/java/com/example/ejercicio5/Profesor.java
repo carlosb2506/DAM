@@ -1,7 +1,16 @@
 package com.example.ejercicio5;
 
 public class Profesor {
+    int foto;
     String nombre, apellidos, departamento, estado;
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
 
     public String getNombre() {
         return nombre;
@@ -35,7 +44,8 @@ public class Profesor {
         this.departamento = departamento;
     }
 
-    public Profesor(String nombre, String apellidos, String departamento, String estado) {
+    public Profesor(int foto, String nombre, String apellidos, String departamento, String estado) {
+        this.foto = foto;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.departamento = departamento;

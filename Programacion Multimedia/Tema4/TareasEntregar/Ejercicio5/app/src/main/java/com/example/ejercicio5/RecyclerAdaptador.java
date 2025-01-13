@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         private TextView tvApellidos;
         private TextView tvEstado;
         private TextView tvDepartamento;
+        private ImageView ivPerfil;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,9 +56,11 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             tvApellidos = itemView.findViewById(R.id.tvApellidos);
             tvEstado = itemView.findViewById(R.id.tvEstado);
             tvDepartamento = itemView.findViewById(R.id.tvDepartamento);
+            ivPerfil = itemView.findViewById(R.id.ivPerfil);
         }
 
         public void bind(Profesor profesor) {
+            ivPerfil.setImageResource(profesor.getFoto());
             tvNombre.setText(profesor.getNombre());
             tvApellidos.setText(profesor.getApellidos());
             tvDepartamento.setText(profesor.getDepartamento());
