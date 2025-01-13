@@ -2,6 +2,7 @@ package com.example.ejercicio4;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,5 +41,9 @@ public class Actividad2 extends Activity {
         tvEdad2.setText(String.valueOf(datos.getInt("Edad")));
         tvEstado.setText(datos.getString("Estado"));
 
+    }
+
+    public void volver(View view){
+        finish();
     }
 }
