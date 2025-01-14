@@ -51,29 +51,7 @@ public class MainActivity extends AppCompatActivity {
         adaptador = new RecyclerAdaptador(listaProfes);
         rvProfes.setAdapter(adaptador);
 
-
-        /*launcherActividad2 = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-
-                        String nombre = result.getData().getStringExtra("nombre");
-                        String apellidos = result.getData().getStringExtra("apellidos");
-                        String departamento = result.getData().getStringExtra("departamento");
-                        String materias = result.getData().getStringExtra("materias");
-                        String estado = result.getData().getStringExtra("estado");
-
-
-                        listaProfes.add(new Profesor(R.drawable.perfil, nombre, apellidos, departamento, estado));
-
-
-                        adaptador.notifyItemInserted(listaProfes.size() - 1);
-                    }
-                }
-        );*/
-
-
-
+        launcherActividad2 = registerForActivityResult( new ActivityResultContracts.StartActivityForResult(), this::manejarResultado );
 
         btnAniadir = findViewById(R.id.button);
         btnAniadir.setOnClickListener(v -> {
@@ -81,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
             launcherActividad2.launch(intent);
         });
     }
-
-
     public void llenarLista() {
         listaProfes = new ArrayList<>(); // Uso del operador diamante
         listaProfes.add(new Profesor(R.drawable.perfil,"Carlos", "Barroso", "Informática", "FIJO"));
@@ -94,10 +70,22 @@ public class MainActivity extends AppCompatActivity {
         listaProfes.add(new Profesor(R.drawable.perfil,"Juan", "Borrego", "Informática", "FIJO"));
     }
 
-    public void AñadirProfesor(View view)
+    public void AniadirProfesor(View view)
     {
         Intent i = new Intent(this, Actividad2.class);
         startActivity(i);
+    }
 
+    public void manejarResultado(ActivityResult result) {
+        if (result.getResultCode() == RESULT_OK) {
+            String nombre = result.getData().getStringExtra("nombre");
+            String apellidos = result.getData().getStringExtra("apellidos");
+            String departamento = result.getData().getStringExtra("departamento");
+            String materias = result.getData().getStringExtra("materias");
+            String estado = result.getData().getStringExtra("estado");
+
+            listaProfes.add(new Profesor(R.drawable.perfil, nombre, apellidos, departamento, estado));
+            adaptador.notifyItemInserted(listaProfes.size() - 1);
+        }
     }
 }

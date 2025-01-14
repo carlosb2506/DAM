@@ -25,7 +25,7 @@
         android:layout_marginEnd="93dp"
         android:layout_marginBottom="43dp"
         android:background="#03A9F4"
-        android:onClick="AñadirProfesor"
+        android:onClick="AniadirProfesor"
         android:text="@string/aniadirProfe"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

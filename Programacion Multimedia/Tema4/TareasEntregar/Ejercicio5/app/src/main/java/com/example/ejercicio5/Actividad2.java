@@ -33,12 +33,12 @@ public class Actividad2 extends Activity {
         etDepartamento = findViewById(R.id.etDepartamento);
         spinner = findViewById(R.id.spinner);
 
-        String[] categorias = {"Sustitución", "Fijo/a"};
+        String[] categorias = {"SUSTITUCIÓN", "FIJO/A"};
 
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categorias));
     }
 
-    public void Taraaa(View view) {
+    public void aniadir(View view) {
 
         String nombre = etNombre.getText().toString();
         String apellidos = etApellidos.getText().toString();
@@ -47,12 +47,13 @@ public class Actividad2 extends Activity {
         String materias = etMaterias.getText().toString();
         String departamento = etDepartamento.getText().toString();
 
-        if (nombre.isEmpty() || apellidos.isEmpty() || direccion.isEmpty() || departamento.isEmpty() || materias.isEmpty()) {
-            Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+        if (nombre.isEmpty() || apellidos.isEmpty() || direccion.isEmpty() || departamento.isEmpty() || materias.isEmpty())
+        {
+            Toast.makeText(this, "Para añadir el profesor, debe completar todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Toast.makeText(this, "Profesor guardado: " + nombre + " " + apellidos, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Profesor añadido con éxito: " + nombre + " " + apellidos, Toast.LENGTH_SHORT).show();
 
         Intent i = new Intent();
         i.putExtra("nombre", nombre);
