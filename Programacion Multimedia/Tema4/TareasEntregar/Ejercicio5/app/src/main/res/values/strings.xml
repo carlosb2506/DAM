@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Ejercicio5</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="Domicilio">Domicilio:</string>
+    <string name="Materias">Materias que imparte:</string>
+    <string name="departamento">Departamento:</string>
+    <string name="estado">Estado:</string>
+    <string name="aniadirProfe">Añadir Profesor/a</string>
+    <string name="aniadir">Añadir</string>
+    <string name="cancelar">Cancelar</string>
+
 </resources>

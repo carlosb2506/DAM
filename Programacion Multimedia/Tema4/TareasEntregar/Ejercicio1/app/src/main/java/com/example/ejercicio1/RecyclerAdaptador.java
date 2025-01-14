@@ -15,22 +15,23 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
 
     private ArrayList<Parking> lista;
 
-    // Constructor
     public RecyclerAdaptador(ArrayList<Parking> lista) {
         this.lista = lista;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View vista = layoutInflater.inflate(R.layout.layout_parking, parent, false);
-        return new ViewHolder(vista); // Simplificado
+        return new ViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(lista.get(position)); // Pasar el objeto Parking directamente
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    {
+        holder.bind(lista.get(position));
     }
 
     @Override
@@ -38,7 +39,6 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         return lista.size();
     }
 
-    // ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvUbi;
         private ImageView imIcon;
@@ -50,9 +50,8 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             imIcon = itemView.findViewById(R.id.imIcon);
         }
 
-        // Metodo bind actualizado
         public void bind(Parking parking) {
-            tvUbi.setText(parking.getUbicacion()); // Evitar la concatenación innecesaria
+            tvUbi.setText(parking.getUbicacion());
             imIcon.setImageResource(parking.getIcono());
         }
     }
