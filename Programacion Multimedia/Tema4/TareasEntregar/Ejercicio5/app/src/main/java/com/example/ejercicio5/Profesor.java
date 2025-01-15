@@ -2,7 +2,29 @@ package com.example.ejercicio5;
 
 public class Profesor {
     int foto;
-    String nombre, apellidos, departamento, estado;
+    String nombre;
+    String apellidos;
+    String domicilio;
+    String departamento;
+    String estado;
+
+    public String getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(String materias) {
+        this.materias = materias;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    String materias;
 
     public int getFoto() {
         return foto;
@@ -44,11 +66,13 @@ public class Profesor {
         this.departamento = departamento;
     }
 
-    public Profesor(int foto, String nombre, String apellidos, String departamento, String estado) {
+    public Profesor(int foto, String nombre, String apellidos, String domicilio, String departamento, String estado, String materias) {
         this.foto = foto;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.domicilio = domicilio;
         this.departamento = departamento;
         this.estado = estado;
+        this.materias = materias;
     }
 }

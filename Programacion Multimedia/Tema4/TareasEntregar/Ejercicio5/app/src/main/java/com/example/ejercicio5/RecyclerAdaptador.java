@@ -17,10 +17,12 @@ import java.util.ArrayList;
 public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.ViewHolder> {
 
     private ArrayList<Profesor> lista;
+    private Context contex;
 
-    public RecyclerAdaptador(ArrayList<Profesor> lista)
+    public RecyclerAdaptador(ArrayList<Profesor> lista, Context context)
     {
         this.lista = lista;
+        this.contex = context;
     }
 
     @NonNull
@@ -57,9 +59,25 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             tvEstado = itemView.findViewById(R.id.tvEstado);
             tvDepartamento = itemView.findViewById(R.id.tvDepartamento);
             ivPerfil = itemView.findViewById(R.id.ivPerfil);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int posicion = getAdapterPosition();
+                    Intent i = new Intent(contex, Actividad3.class);
+                    i.putExtra("foto", lista.get(posicion).getFoto());
+                    i.putExtra("nombre", lista.get(posicion).getNombre());
+                    i.putExtra("apellidos", lista.get(posicion).getApellidos());
+                    i.putExtra("departamento", lista.get(posicion).getDepartamento());
+                    i.putExtra("estado", lista.get(posicion).getEstado());
+                    i.putExtra("materias", lista.get(posicion).getMaterias());
+                    contex.startActivity(i);
+                }
+            });
         }
 
-        public void bind(Profesor profesor) {
+        public void bind(Profesor profesor)
+        {
             ivPerfil.setImageResource(profesor.getFoto());
             tvNombre.setText(profesor.getNombre());
             tvApellidos.setText(profesor.getApellidos());

@@ -49,7 +49,7 @@ public class Actividad2 extends Activity {
 
         if (nombre.isEmpty() || apellidos.isEmpty() || direccion.isEmpty() || departamento.isEmpty() || materias.isEmpty())
         {
-            Toast.makeText(this, "Para añadir el profesor, debe completar todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Para añadir el profesor/la profesora, debe completar todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 

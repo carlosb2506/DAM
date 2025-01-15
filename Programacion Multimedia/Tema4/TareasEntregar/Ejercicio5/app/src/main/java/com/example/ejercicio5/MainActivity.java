@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         rvProfes.setLayoutManager(new LinearLayoutManager(this));
 
         llenarLista();
-        adaptador = new RecyclerAdaptador(listaProfes);
+        adaptador = new RecyclerAdaptador(listaProfes, this);
         rvProfes.setAdapter(adaptador);
 
         launcherActividad2 = registerForActivityResult( new ActivityResultContracts.StartActivityForResult(), this::manejarResultado );
@@ -59,15 +59,16 @@ public class MainActivity extends AppCompatActivity {
             launcherActividad2.launch(intent);
         });
     }
-    public void llenarLista() {
+    public void llenarLista()
+    {
         listaProfes = new ArrayList<>(); // Uso del operador diamante
-        listaProfes.add(new Profesor(R.drawable.perfil,"Carlos", "Barroso", "Informática", "FIJO"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Ana", "Martínez", "Psicología", "FIJO"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Javier", "Mendoza", "Historia", "SUSTITUCIÓN"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Jose", "Pozo", "Lengua", "FIJO"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Jose Antonio", "Vázquez", "Matemáticas", "SUSTITUCION"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Rafael", "Ángulo", "Lengua", "SUSTITUCIÓN"));
-        listaProfes.add(new Profesor(R.drawable.perfil,"Juan", "Borrego", "Informática", "FIJO"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Carlos", "Barroso", "C/ LAS VEGAS, Nº12", "Informática", "FIJO", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Ana", "Martínez", "C/ RONDA, Nº12", "Psicología", "SUSTITUCION", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Javier", "Mendoza", "C/ NUEVA, Nº12", "Historia", "FIJO", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Jose", "Pozo", "C/ ARENAL, Nº12", "Lengua", "SUSTITUCION", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Jose Antonio", "Vázquez", "C/ LAS VEGAS, Nº12", "Matemáticas", "SUSTITUCION", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Rafael", "Ángulo", "C/ LAS VEGAS, Nº12", "Lengua", "FIJO", "ninguna"));
+        listaProfes.add(new Profesor(R.drawable.perfil,"Juan", "Borrego", "C/ LAS VEGAS, Nº12", "Informática", "SUSTITUCION", "ninguna"));
     }
 
     public void AniadirProfesor(View view)
@@ -76,15 +77,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void manejarResultado(ActivityResult result) {
-        if (result.getResultCode() == RESULT_OK) {
+    public void manejarResultado(ActivityResult result)
+    {
+        if (result.getResultCode() == RESULT_OK)
+        {
             String nombre = result.getData().getStringExtra("nombre");
             String apellidos = result.getData().getStringExtra("apellidos");
+            String domicilio = result.getData().getStringExtra("domicilio");
             String departamento = result.getData().getStringExtra("departamento");
             String materias = result.getData().getStringExtra("materias");
             String estado = result.getData().getStringExtra("estado");
 
-            listaProfes.add(new Profesor(R.drawable.perfil, nombre, apellidos, departamento, estado));
+            listaProfes.add(new Profesor(R.drawable.perfil, nombre, apellidos, domicilio, departamento, estado, materias));
             adaptador.notifyItemInserted(listaProfes.size() - 1);
         }
     }
