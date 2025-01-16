@@ -2,6 +2,7 @@
 
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -18,11 +19,11 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <center>
-      <TabPane prefHeight="454.0" prefWidth="441.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="470.0" prefWidth="802.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Datos Usuario">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="519.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="445.0" prefWidth="558.0">
                      <children>
                         <Label fx:id="Nombre" layoutX="34.0" layoutY="54.0" mouseTransparent="true" text="Apellidos y Nombre :">
                            <effect>
@@ -111,7 +112,7 @@
           </Tab>
           <Tab text="Datos Gráficos">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="833.0">
                      <children>
                         <ComboBox fx:id="cbNombres" layoutX="72.0" layoutY="31.0" prefHeight="25.0" prefWidth="301.0" />
                         <Label layoutX="192.0" layoutY="14.0" text="USUARIOS" />
@@ -128,6 +129,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
+                        <PieChart fx:id="graficoQuesitos" layoutX="426.0" layoutY="56.0" prefHeight="280.0" prefWidth="351.0" />
                      </children></AnchorPane>
             </content>
           </Tab>

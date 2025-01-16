@@ -1,8 +1,6 @@
 package application;
 
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -21,7 +19,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 
 public class SampleController {
 
@@ -47,6 +44,9 @@ public class SampleController {
 
 	@FXML
 	private StackedBarChart<String, Number> grafico;
+	
+	@FXML
+	private PieChart graficoQuesitos;
 
 	@FXML
 	public void initialize() {
@@ -65,6 +65,7 @@ public class SampleController {
 			agregarBBDD();
 			try {
 				calcularConsumo();
+				calcularConsumoQuesitos();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -196,5 +197,49 @@ public class SampleController {
 			System.out.println("Error al calcular el consumo por meses: " + e.getMessage());
 		}
 	}
+	
+	public void calcularConsumoQuesitos() throws SQLException {
+
+	    String mesFinal = mesFin.getValue();
+	    String nombreUsuario = cbNombres.getValue();
+
+	    if (nombreUsuario == null) {
+	        JOptionPane.showMessageDialog(null, "SELECCIONE UN USUARIO");
+	        return;
+	    }
+
+	    String url = "jdbc:sqlite:ElectricityBBDD.db";
+
+	    String sql = "SELECT consumo_en_punta, consumo_en_llano, consumo_en_valle "
+	               + "FROM usuario WHERE nombre = ? AND mes = ?";
+
+	    try (Connection con = DriverManager.getConnection(url); PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+	        pstmt.setString(1, nombreUsuario);
+	        pstmt.setString(2, mesFinal);
+
+	        ResultSet rs = pstmt.executeQuery();
+
+	        graficoQuesitos.getData().clear();
+
+	        if (rs.next()) {
+	            double consumoPunta = rs.getDouble("consumo_en_punta");
+	            double consumoLlano = rs.getDouble("consumo_en_llano");
+	            double consumoValle = rs.getDouble("consumo_en_valle");
+
+	            graficoQuesitos.getData().add(new PieChart.Data("Punta", consumoPunta));
+	            graficoQuesitos.getData().add(new PieChart.Data("Llano", consumoLlano));
+	            graficoQuesitos.getData().add(new PieChart.Data("Valle", consumoValle));
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        System.out.println("Error al calcular el consumo: " + e.getMessage());
+	    }
+	}
+
+
+
+
 
 }
