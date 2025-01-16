@@ -1,5 +1,10 @@
 package application;
 
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
@@ -16,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 
 public class SampleController {
 
@@ -38,22 +44,23 @@ public class SampleController {
 
 	@FXML
 	private ComboBox<String> cbNombres;
-	
-	private boolean bandera = true;
+
+	@FXML
+	private StackedBarChart<String, Number> grafico;
 
 	@FXML
 	public void initialize() {
 		btnAgregar.setOnAction(event -> {
-			bandera = true;
+			// bandera = true;
 			agregarBBDD();
 			try {
 				actualizarComboBox();
 			} catch (SQLException e) {
-				bandera = false;
+				// bandera = false;
 				e.printStackTrace();
 			}
 		});
-		
+
 		btnCalcular.setOnAction(event -> {
 			agregarBBDD();
 			try {
@@ -89,9 +96,7 @@ public class SampleController {
 
 	@FXML
 	public void agregarBBDD() {
-		
-		if (bandera) return;
-		
+
 		String nombre = tfNombre.getText();
 		String strPunta = tfPunta.getText();
 		String strLlano = tfLlano.getText();
@@ -149,43 +154,47 @@ public class SampleController {
 
 	}
 
-	
 	public void calcularConsumo() throws SQLException {
-		
-		if (!bandera) return;
-		
-	    String mesInicial = mesInic.getValue();
-	    String mesFinal = mesFin.getValue();
-	    String nombreUsuario = cbNombres.getValue();
 
-	    if ( nombreUsuario == null) {
-	        JOptionPane.showMessageDialog(null, "SELECCIONE UN USUARIO");
-	        return;
-	    }
+		String mesInicial = mesInic.getValue();
+		String mesFinal = mesFin.getValue();
+		String nombreUsuario = cbNombres.getValue();
 
-	    String url = "jdbc:sqlite:ElectricityBBDD.db";
-	    String sql = "SELECT mes, (consumo_en_punta + consumo_en_llano + consumo_en_valle) AS consumo_total "
-	               + "FROM usuario "
-	               + "WHERE nombre = ? AND mes BETWEEN ? AND ? "
-	               + "ORDER BY mes";
+		if (nombreUsuario == null) {
+			JOptionPane.showMessageDialog(null, "SELECCIONE UN USUARIO");
+			return;
+		}
 
-	    try (Connection con = DriverManager.getConnection(url);
-	         PreparedStatement pstmt = con.prepareStatement(sql)) {
-	        
-	        pstmt.setString(1, nombreUsuario);
-	        pstmt.setString(2, mesInicial);
-	        pstmt.setString(3, mesFinal);
+		String url = "jdbc:sqlite:ElectricityBBDD.db";
+		String sql = "SELECT mes, (consumo_en_punta + consumo_en_llano + consumo_en_valle) AS consumo_total "
+				+ "FROM usuario WHERE nombre = ? AND mes BETWEEN ? AND ? ORDER BY mes";
 
-	        ResultSet rs = pstmt.executeQuery();
+		try (Connection con = DriverManager.getConnection(url); PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-	        while (rs.next()) {
-	            String mes = rs.getString("mes");
-	            double consumoTotal = rs.getDouble("consumo_total");
-	            System.out.println("Consumo total en " + mes + " para " + nombreUsuario + ": " + consumoTotal);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        System.out.println("Error al calcular el consumo por meses: " + e.getMessage());
-	    }
+			pstmt.setString(1, nombreUsuario);
+			pstmt.setString(2, mesInicial);
+			pstmt.setString(3, mesFinal);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			grafico.getData().clear();
+
+			XYChart.Series<String, Number> series = new XYChart.Series<>();
+			series.setName(nombreUsuario);
+
+			while (rs.next()) {
+				String mes = rs.getString("mes");
+				double consumoTotal = rs.getDouble("consumo_total") / 3;
+
+				series.getData().add(new XYChart.Data<>(mes, consumoTotal));
+			}
+
+			grafico.getData().add(series);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error al calcular el consumo por meses: " + e.getMessage());
+		}
 	}
+
 }

@@ -9,5 +9,8 @@
     <string name="aniadirProfe">Añadir Profesor/a</string>
     <string name="aniadir">Añadir</string>
     <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="volver">Volver</string>
+    <string name="tituloModif">Modificar Profesor</string>
 
 </resources>

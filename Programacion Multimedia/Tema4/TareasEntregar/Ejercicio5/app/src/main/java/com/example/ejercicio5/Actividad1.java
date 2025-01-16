@@ -2,6 +2,7 @@ package com.example.ejercicio5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,14 +21,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class Actividad1 extends AppCompatActivity {
 
     private ArrayList<Profesor> listaProfes;
     private RecyclerView rvProfes;
     private RecyclerAdaptador adaptador;
     private TextView tvNombre, tvApellidos, tvEstado;
     private Button btnAniadir;
-    private ActivityResultLauncher<Intent> launcherActividad2;
+    private ActivityResultLauncher<Intent> launcherActividad2, launcherModif;
 
 
     @Override
@@ -34,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_actividad1);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
 
 
         rvProfes = findViewById(R.id.rvProfes);
@@ -52,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
         rvProfes.setAdapter(adaptador);
 
         launcherActividad2 = registerForActivityResult( new ActivityResultContracts.StartActivityForResult(), this::manejarResultado );
+        launcherModif = registerForActivityResult( new ActivityResultContracts.StartActivityForResult(), this::modifResult );
+
 
         btnAniadir = findViewById(R.id.button);
         btnAniadir.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Actividad2.class);
+            Intent intent = new Intent(Actividad1.this, Actividad2.class);
             launcherActividad2.launch(intent);
         });
     }
@@ -91,5 +96,53 @@ public class MainActivity extends AppCompatActivity {
             listaProfes.add(new Profesor(R.drawable.perfil, nombre, apellidos, domicilio, departamento, estado, materias));
             adaptador.notifyItemInserted(listaProfes.size() - 1);
         }
+    }
+    public void modifResult(ActivityResult result)
+    {
+        if (result.getResultCode() == RESULT_OK)
+        {
+            String nombre = result.getData().getStringExtra("nombre");
+            String apellidos = result.getData().getStringExtra("apellidos");
+            String domicilio = result.getData().getStringExtra("domicilio");
+            String departamento = result.getData().getStringExtra("departamento");
+            String materias = result.getData().getStringExtra("materias");
+            String estado = result.getData().getStringExtra("estado");
+            int posicion = result.getData().getIntExtra("Posicion", 0);
+
+            adaptador.modificar(new Profesor(R.drawable.perfil, nombre, apellidos, domicilio, departamento, estado, materias), posicion);
+
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        boolean devolver = true;
+        Intent i;
+        Profesor profesor;
+        switch (item.getItemId()){
+            case 121:
+                //Borrar el registro seleccionado
+                adaptador.borrar(item.getGroupId());
+                break;
+            case 122:
+                //Modificar datos
+                int posicion = item.getGroupId();
+                i = new Intent(this, ProfesorModif.class);
+                profesor = adaptador.profe(posicion);
+
+                i.putExtra("nombre", profesor.getNombre());
+                i.putExtra("apellidos", profesor.getApellidos());
+                i.putExtra("departamento", profesor.getDepartamento());
+                i.putExtra("domicilio", profesor.getDomicilio());
+                i.putExtra("materias", profesor.getMaterias());
+                i.putExtra("estado", profesor.getEstado());
+                launcherModif.launch(i);
+                break;
+            default:
+                devolver = super.onContextItemSelected(item);
+                break;
+        }
+
+        return devolver;
     }
 }

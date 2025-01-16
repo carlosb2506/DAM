@@ -59,6 +59,7 @@ public class Actividad2 extends Activity {
         i.putExtra("nombre", nombre);
         i.putExtra("apellidos", apellidos);
         i.putExtra("departamento", departamento);
+        i.putExtra("domicilio", direccion);
         i.putExtra("materias", materias);
         i.putExtra("estado", estado);
 

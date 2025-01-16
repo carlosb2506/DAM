@@ -3,6 +3,7 @@ package com.example.ejercicio5;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,11 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
         this.contex = context;
     }
 
+    public void borrar(int posicion){
+        lista.remove(posicion);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,14 +50,22 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public void modificar(Profesor profesor, int posicion){
+        lista.set(posicion, profesor);
+        notifyDataSetChanged();
+    }
+
+    public Profesor profe (int posicion){
+        return lista.get(posicion);
+    }
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         private TextView tvNombre;
         private TextView tvApellidos;
         private TextView tvEstado;
         private TextView tvDepartamento;
         private ImageView ivPerfil;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView)  {
             super(itemView);
 
             tvNombre = itemView.findViewById(R.id.tvNombre);
@@ -68,12 +82,16 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
                     i.putExtra("foto", lista.get(posicion).getFoto());
                     i.putExtra("nombre", lista.get(posicion).getNombre());
                     i.putExtra("apellidos", lista.get(posicion).getApellidos());
+                    i.putExtra("domicilio", lista.get(posicion).getDomicilio());
                     i.putExtra("departamento", lista.get(posicion).getDepartamento());
                     i.putExtra("estado", lista.get(posicion).getEstado());
                     i.putExtra("materias", lista.get(posicion).getMaterias());
                     contex.startActivity(i);
                 }
             });
+
+            itemView.setOnCreateContextMenuListener(this);
+
         }
 
         public void bind(Profesor profesor)
@@ -83,6 +101,13 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             tvApellidos.setText(profesor.getApellidos());
             tvDepartamento.setText(profesor.getDepartamento());
             tvEstado.setText(profesor.getEstado());
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Seleccione una opción:");
+            contextMenu.add(this.getAdapterPosition(), 121, 0, "Borrar");
+            contextMenu.add(this.getAdapterPosition(), 122, 0, "Modificar");
         }
     }
 }
