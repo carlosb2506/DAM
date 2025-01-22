@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ejercicio1</string>
+    <string name="tvLogin">REGISTRO</string>
+    <string name="tvNombre">ALQUILER DE MOTOS</string>
+    <string name="etUser">Correo Electrónico</string>
+    <string name="etPassword">Contraseña</string>
+    <string name="tvFallos">FALLOS:</string>
+    <string name="btnEntrar">ENTRAR</string>
+    <string name="tvTitulo2">¿DONDE PUEDO ENCONTRAR LAS MOTOS?</string>
+    <string name="btnVolver">VOLVER</string>
+</resources>
