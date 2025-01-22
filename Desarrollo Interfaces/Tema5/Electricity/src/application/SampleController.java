@@ -11,6 +11,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 
@@ -32,7 +37,7 @@ public class SampleController {
 	private Spinner<String> mesFin;
 
 	@FXML
-	private TextField tfNombre, tfPunta, tfLlano, tfValle;
+	private TextField tfNombre, tfPunta, tfLlano, tfValle, tfPrecioFin;
 
 	@FXML
 	private Button btnAgregar;
@@ -44,19 +49,21 @@ public class SampleController {
 
 	@FXML
 	private StackedBarChart<String, Number> grafico;
-	
-	@FXML
-	private PieChart graficoQuesitos;
+
+//	@FXML
+//	private PieChart graficoQuesitos;
+//	
+//	private float precioPunta = 0.2001f;
+//	private float precioLlano = 0.1236f;
+//	private float precioValle = 0.1560f;
 
 	@FXML
 	public void initialize() {
 		btnAgregar.setOnAction(event -> {
-			// bandera = true;
 			agregarBBDD();
 			try {
 				actualizarComboBox();
 			} catch (SQLException e) {
-				// bandera = false;
 				e.printStackTrace();
 			}
 		});
@@ -65,7 +72,7 @@ public class SampleController {
 			agregarBBDD();
 			try {
 				calcularConsumo();
-				calcularConsumoQuesitos();
+				// calcularConsumoQuesitos();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -168,7 +175,7 @@ public class SampleController {
 
 		String url = "jdbc:sqlite:ElectricityBBDD.db";
 		String sql = "SELECT mes, (consumo_en_punta + consumo_en_llano + consumo_en_valle) AS consumo_total "
-				+ "FROM usuario WHERE nombre = ? AND mes BETWEEN ? AND ? ORDER BY mes";
+				+ "FROM usuario WHERE nombre = ? AND mes BETWEEN ? AND ?";
 
 		try (Connection con = DriverManager.getConnection(url); PreparedStatement pstmt = con.prepareStatement(sql)) {
 
@@ -197,49 +204,48 @@ public class SampleController {
 			System.out.println("Error al calcular el consumo por meses: " + e.getMessage());
 		}
 	}
-	
-	public void calcularConsumoQuesitos() throws SQLException {
 
-	    String mesFinal = mesFin.getValue();
-	    String nombreUsuario = cbNombres.getValue();
-
-	    if (nombreUsuario == null) {
-	        JOptionPane.showMessageDialog(null, "SELECCIONE UN USUARIO");
-	        return;
-	    }
-
-	    String url = "jdbc:sqlite:ElectricityBBDD.db";
-
-	    String sql = "SELECT consumo_en_punta, consumo_en_llano, consumo_en_valle "
-	               + "FROM usuario WHERE nombre = ? AND mes = ?";
-
-	    try (Connection con = DriverManager.getConnection(url); PreparedStatement pstmt = con.prepareStatement(sql)) {
-
-	        pstmt.setString(1, nombreUsuario);
-	        pstmt.setString(2, mesFinal);
-
-	        ResultSet rs = pstmt.executeQuery();
-
-	        graficoQuesitos.getData().clear();
-
-	        if (rs.next()) {
-	            double consumoPunta = rs.getDouble("consumo_en_punta");
-	            double consumoLlano = rs.getDouble("consumo_en_llano");
-	            double consumoValle = rs.getDouble("consumo_en_valle");
-
-	            graficoQuesitos.getData().add(new PieChart.Data("Punta", consumoPunta));
-	            graficoQuesitos.getData().add(new PieChart.Data("Llano", consumoLlano));
-	            graficoQuesitos.getData().add(new PieChart.Data("Valle", consumoValle));
-	        }
-
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        System.out.println("Error al calcular el consumo: " + e.getMessage());
-	    }
-	}
-
-
-
-
-
+//	public void calcularConsumoQuesitos() throws SQLException {
+//
+//		String mesFinal = mesFin.getValue();
+//		String nombreUsuario = cbNombres.getValue();
+//
+//		if (nombreUsuario == null) {
+//			JOptionPane.showMessageDialog(null, "SELECCIONE UN USUARIO");
+//			return;
+//		}
+//
+//		String url = "jdbc:sqlite:ElectricityBBDD.db";
+//
+//		String sql = "SELECT consumo_en_punta, consumo_en_llano, consumo_en_valle "
+//				+ "FROM usuario WHERE nombre = ? AND mes = ?";
+//
+//		try (Connection con = DriverManager.getConnection(url); PreparedStatement pstmt = con.prepareStatement(sql)) {
+//
+//			pstmt.setString(1, nombreUsuario);
+//			pstmt.setString(2, mesFinal);
+//
+//			ResultSet rs = pstmt.executeQuery();
+//
+//			graficoQuesitos.getData().clear();
+//
+//			if (rs.next()) {
+//				double consumoPunta = rs.getDouble("consumo_en_punta");
+//				double consumoLlano = rs.getDouble("consumo_en_llano");
+//				double consumoValle = rs.getDouble("consumo_en_valle");
+//
+//				graficoQuesitos.getData().add(new PieChart.Data("Punta", consumoPunta));
+//				graficoQuesitos.getData().add(new PieChart.Data("Llano", consumoLlano));
+//				graficoQuesitos.getData().add(new PieChart.Data("Valle", consumoValle));
+//				
+//				double precioFinal = (consumoPunta * precioPunta) + (consumoLlano * precioLlano) + (consumoValle * precioValle);
+//				
+//				tfPrecioFin.setText("El coste final es: " + precioFinal);
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("Error al calcular el consumo: " + e.getMessage());
+//		}
+//	}
 }

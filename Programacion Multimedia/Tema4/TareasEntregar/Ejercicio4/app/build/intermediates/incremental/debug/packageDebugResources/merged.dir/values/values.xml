@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Ejercicio4</string>
+    <string name="btnFalta">Asiste</string>
+    <string name="btnVolver">Volver</string>
+    <string name="tvDatosPersonales">DATOS PERSONALES</string>
+    <string name="tvDom">Domicilio</string>
+    <string name="tvEdad">Edad</string>
+    <string name="tvFecha">Fecha Nacimiento</string>
+    <style name="Base.Theme.Ejercicio4" parent="Theme.AppCompat.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Ejercicio4" parent="Base.Theme.Ejercicio4"/>
+</resources>

@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_layout_modif_profesor.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\layout_modif_profesor.xml"
+    },
+    {
+        "merged": "com.example.ejercicio5.app-debug-31:/layout_layout_modif_profesor.xml.flat",
+        "source": "com.example.ejercicio5.app-main-33:/layout/layout_modif_profesor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_layout_actividad2.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\layout_actividad2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_layout_recycler_view.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\layout_recycler_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\font_alkatra.ttf.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\font\\alkatra.ttf"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_layout_actividad3.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\layout_actividad3.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_layout_actividad1.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\layout_actividad1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\drawable_perfil.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\drawable\\perfil.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-debug-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alumno\\.gradle\\daemon\\8.9\\com.example.ejercicio5.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
+    }
+]
