@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EjercicioSimulacro</string>
+    <string name="tvTitulo">LISTA JUGADORES</string>
+    <string name="btnAniadir">AÑADIR</string>
+    <string name="nombre">Nombre: </string>
+    <string name="apellidos">Apellidos: </string>
+    <string name="dorsal">Dorsal: </string>
+    <string name="edad">Edad: </string>
+    <string name="Posicion">Posición: </string>
+    <string name="estado">Estado: </string>
+    <string name="aniadirJug">AÑADIR JUGADOR</string>
+    <string name="btnCancelar">CANCELAR </string>
+</resources>
