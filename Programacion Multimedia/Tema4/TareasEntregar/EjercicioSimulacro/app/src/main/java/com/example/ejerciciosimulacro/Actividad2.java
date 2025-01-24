@@ -43,10 +43,10 @@ public class Actividad2 extends Activity {
         String apellidos = etApellidos.getText().toString();
         String posicion = etPosicion.getText().toString();
         String estado = spinner.getSelectedItem().toString();
-        String edad = etEdad.getText().toString();
-        String dorsal = etDorsal.getText().toString();
+        int edad = Integer.parseInt(etEdad.getText().toString());
+        int dorsal = Integer.parseInt(etDorsal.getText().toString());
 
-        if (nombre.isEmpty() || apellidos.isEmpty() || posicion.isEmpty() || edad.isEmpty() || dorsal.isEmpty())
+        if (nombre.isEmpty() || apellidos.isEmpty() || posicion.isEmpty())
         {
             Toast.makeText(this, "Para añadir el profesor/la profesora, debe completar todos los campos", Toast.LENGTH_SHORT).show();
             return;
@@ -58,8 +58,8 @@ public class Actividad2 extends Activity {
         i.putExtra("nombre", nombre);
         i.putExtra("apellidos", apellidos);
         i.putExtra("posicion", posicion);
-        i.putExtra("edad", edad);
-        i.putExtra("dorsal", dorsal);
+        i.putExtra("edadd", edad);
+        i.putExtra("dorsall", dorsal);
         i.putExtra("estado", estado);
 
         setResult(RESULT_OK, i);

@@ -17,7 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     private ArrayList<Jugador> listaJug;
     private RecyclerView rvJug;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcherActividad2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void llenarLista() {
+    public void llenarLista()
+    {
         listaJug = new ArrayList<>();
         listaJug.add(new Jugador(R.drawable.ubi, "Carlos", "Barroso", 99, 31, "DELANTERO", "TITULAR"));
         listaJug.add(new Jugador(R.drawable.ubi, "Francisco", "Ruiz", 69, 18, "LATERAL DERECHO", "TITULAR"));
@@ -59,13 +62,15 @@ public class MainActivity extends AppCompatActivity {
         listaJug.add(new Jugador(R.drawable.ubi, "Juan", "Borrego", 58, 21, "CENTROCAMPISTA", "SUPLENTE"));
     }
 
-    public void manejarResultado(ActivityResult result) {
-        if (result.getResultCode() == RESULT_OK) {
+    public void manejarResultado(ActivityResult result)
+    {
+        if (result.getResultCode() == RESULT_OK)
+        {
             String nombre = result.getData().getStringExtra("nombre");
             String apellidos = result.getData().getStringExtra("apellidos");
             String posicion = result.getData().getStringExtra("posicion");
-            int edad = result.getData().getIntExtra("edad",0);
-            int dorsal = result.getData().getIntExtra("dorsal",0);
+            int edad = result.getData().getIntExtra("edadd",0);
+            int dorsal = result.getData().getIntExtra("dorsall",0);
             String estado = result.getData().getStringExtra("estado");
 
             listaJug.add(new Jugador(R.drawable.ubi, nombre, apellidos, dorsal, edad, posicion,  estado));
