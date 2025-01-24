@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Ejercicio4</string>
-    <string name="btnFalta">Asiste</string>
-    <string name="tvDatosPersonales">DATOS PERSONALES</string>
-    <string name="tvDom">Domicilio</string>
-    <string name="tvFecha">Fecha Nacimiento</string>
-    <string name="tvEdad">Edad</string>
-    <string name="btnVolver">Volver</string>
-</resources>
