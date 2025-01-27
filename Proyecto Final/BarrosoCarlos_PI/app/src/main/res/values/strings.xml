@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BarrosoCarlos_PI</string>
+    <string name="tvTitulo">VALLESPORT</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="Inicio">Iniciar Sesión</string>
+    <string name="Registro">Registrate</string>
+    <string name="PistasDisponibles">Pistas disponibles para alquilar:</string>
+
+</resources>
