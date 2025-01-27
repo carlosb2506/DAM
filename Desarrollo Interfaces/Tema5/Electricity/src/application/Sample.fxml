@@ -2,6 +2,7 @@
 
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -120,7 +121,7 @@
                         <Spinner fx:id="mesInic" layoutX="70.0" layoutY="92.0" prefHeight="25.0" prefWidth="128.0" />
                         <Spinner fx:id="mesFin" layoutX="243.0" layoutY="92.0" prefHeight="25.0" prefWidth="129.0" />
                         <Button fx:id="btnCalcular" layoutX="136.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" text="CALCULAR GRÁFICO" />
-                        <StackedBarChart fx:id="grafico" layoutX="7.0" layoutY="167.0" prefHeight="247.0" prefWidth="786.0">
+                        <StackedBarChart fx:id="grafico" layoutX="7.0" layoutY="167.0" prefHeight="247.0" prefWidth="392.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -128,6 +129,8 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
+                        <PieChart fx:id="graficoQuesitos" layoutX="401.0" layoutY="44.0" prefHeight="366.0" prefWidth="374.0" />
+                        <TextField fx:id="tfPrecioFin" layoutX="257.0" layoutY="402.0" prefHeight="25.0" prefWidth="289.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
