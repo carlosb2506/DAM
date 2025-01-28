@@ -1,0 +1,31 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+font agbalumo
+font aguafina_script
+id btn
+id btnDominos
+id btnVolver
+id main
+id textView
+id tvDesayuno
+id tvTitulito
+layout activity_main
+layout layout_sec_actividad
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string btn
+string btnDominos
+string btnVolver
+string tvDesayuno
+string tvTitulito
+string tvTitulo
+style Base.Theme.EjemploActividades
+style Theme.EjemploActividades
+style boton
+xml backup_rules
+xml data_extraction_rules

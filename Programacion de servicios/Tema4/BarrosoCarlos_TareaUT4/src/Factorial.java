@@ -3,6 +3,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.math.BigInteger;
 
 public class Factorial implements HttpHandler {
 
@@ -34,19 +35,19 @@ public class Factorial implements HttpHandler {
 					} else {
 
 						// Calculamos el factorial del número.
-						long factorial = calculateFactorial(number);
+						BigInteger factorial = calculateFactorial(number);
 						response = "EL FACTORIAL DE: " + number + " ES: " + factorial;
 					}
 				} catch (NumberFormatException e) {
-				
+
 					response = "EL PARÁMETRO 'NUMBER' DEBE SER UN NÚMERO ENTERO";
 				}
 			} else {
-		
+
 				response = "POR FAVOR, PROPORCIONA UN NÚMERO USANDO EL PARAMETRO 'NUMBER'. EJEMPLO: /factorial?number=5";
 			}
 		} else {
-	
+
 			response = "MÉTODO NO SOPORTADO";
 		}
 
@@ -59,16 +60,17 @@ public class Factorial implements HttpHandler {
 		}
 
 		// Detiene el servidor después de manejar la solicitud
-		server.stop(0);
-		System.out.println("SERVIDOR DETENIDO.");
+//		server.stop(0);
+//		System.out.println("SERVIDOR DETENIDO.");
 	}
 
-	// Método para calcular el factorial de un número entero.
-	private int calculateFactorial(int n) {
-		int result = 1; 
+	public BigInteger calculateFactorial(int n) {
+		BigInteger result = BigInteger.ONE;
 		for (int i = 1; i <= n; i++) {
-			result *= i;
+			result = result.multiply(BigInteger.valueOf(i));
 		}
 		return result;
+
 	}
+
 }
