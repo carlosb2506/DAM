@@ -6,5 +6,8 @@
     <string name="Inicio">Iniciar Sesión</string>
     <string name="Registro">Registrate</string>
     <string name="PistasDisponibles">Pistas disponibles para alquilar:</string>
+    <string name="cancelar">Cancelar Reserva</string>
+    <string name="confirmar">Confirmar reserva</string>
+
 
 </resources>

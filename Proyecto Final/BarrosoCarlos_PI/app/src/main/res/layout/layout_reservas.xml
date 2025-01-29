@@ -21,22 +21,29 @@
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="103dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="125dp"
+        android:fontFamily="@font/bangers"
         android:text="TextView"
         android:textColor="#0E74C5"
-        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivFoto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDireccion"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="29dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:text="TextView"
         android:textColor="#0E74C5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivFoto"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 </androidx.constraintlayout.widget.ConstraintLayout>

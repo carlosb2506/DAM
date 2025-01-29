@@ -1,5 +1,6 @@
 package com.example.barrosocarlos_pi;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,20 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerAdaptador.Vi
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             ivFoto = itemView.findViewById(R.id.ivFoto);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int posicion = getAdapterPosition();
+                    Intent i = new Intent(itemView.getContext(), DetallesPista.class);
+
+                    i.putExtra("Nombre", lista.get(posicion).getNombre());
+                    i.putExtra("Foto", lista.get(posicion).getFoto());
+                    i.putExtra("Direccion", lista.get(posicion).getDireccion());
+                    itemView.getContext().startActivity(i);
+                }
+            });
         }
 
         public void bind(Reservas reservas) {

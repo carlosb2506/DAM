@@ -38,7 +38,7 @@ public class ReservarPista extends AppCompatActivity {
     public void llenarLista() {
         listaParking = new ArrayList<>(); // Uso del operador diamante
         listaParking.add(new Reservas(R.drawable.ayto_alcala, "PISTA DE PADEL AZUL", "C. Greco, 2, 11693 Alcalá del Valle, Cádiz"));
-        listaParking.add(new Reservas(R.drawable.ayto_alcala, "PISTA DE PADEL VERDE", "C. Greco, 2, 11693 Alcalá del Valle, Cádiz"));
+        listaParking.add(new Reservas(R.drawable.pista_padel_verde, "PISTA DE PADEL VERDE", "C. Greco, 2, 11693 Alcalá del Valle, Cádiz"));
         listaParking.add(new Reservas(R.drawable.ayto_alcala, "PISTA DE TENIS 1", "CA-455, 82, 11693 Alcalá del Valle, Cádiz"));
         listaParking.add(new Reservas(R.drawable.ayto_alcala, "PISTA DE TENIS 2", "CA-455, 82, 11693 Alcalá del Valle, Cádiz"));
         listaParking.add(new Reservas(R.drawable.ayto_alcala, "CAMPO DE FÚTBOL", "C. Estella del Marques, 22, 11693 Alcalá del Valle, Cádiz"));
