@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Menus</string>
+    <string name="CambiarColor">Cambiar Color</string>
+    <string name="letra">Color letra</string>
+    <string name="salir">Salir</string>
+
+</resources>

@@ -1,0 +1,67 @@
+1. Diseño de la BD con las siguientes pautas:
+	· Al menos 5 entidades y 4 relaciones.
+	· Entidades con al menos 3 campos.
+	· Todos los tipos de cardinalidades posibles para mapearlos después con Hibernate.
+	· Todos los tipos de datos que conocemos: String, int, float, Date, boolean, etc.
+	· Al menos un campo autoincremental bien mapeado.
+	· Temática relacionada con el mundo empresarial: logística, compras, ventas, fabricación, etc.
+	· Se entrega el diagrama ER.
+
+
+
+
+
+
+
+
+CREATE TABLE Cliente (
+    dni INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    fecha_registro DATE NOT NULL
+);
+
+-- Creación de la tabla Producto
+CREATE TABLE Producto (
+    producto_id INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio FLOAT NOT NULL,
+    stock INT NOT NULL,
+    almacen_id INT,
+    FOREIGN KEY (almacen_id) REFERENCES Almacen(almacen_id)
+);
+
+-- Creación de la tabla Pedido
+CREATE TABLE Pedido (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    total FLOAT NOT NULL,
+    cliente_id INT,
+    FOREIGN KEY (cliente_id) REFERENCES Cliente(dni
+)
+);
+
+-- Creación de la tabla Proveedor
+CREATE TABLE Proveedor (
+    proveedor_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contacto VARCHAR(100) NOT NULL,
+    activo BOOLEAN NOT NULL
+);
+
+-- Creación de la tabla Almacen
+CREATE TABLE Almacen (
+    almacen_id INT AUTO_INCREMENT PRIMARY KEY,
+    ubicacion VARCHAR(100) NOT NULL,
+    capacidad INT NOT NULL,
+    tipo VARCHAR(100) NOT NULL
+);
+
+-- Creación de la tabla intermedia Pedido_Producto
+CREATE TABLE Pedido_Producto (
+    pedido_id INT,
+    producto_id INT,
+    PRIMARY KEY (pedido_id, producto_id),
+    FOREIGN KEY (pedido_id) REFERENCES Pedido(pedido_id),
+    FOREIGN KEY (producto_id) REFERENCES Producto(producto_id)
+);

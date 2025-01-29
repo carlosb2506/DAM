@@ -290,19 +290,36 @@ public class SampleController {
 
 		 HashMap<String, Object> parametros = new HashMap<>();
 
-		 parametros.put("Nombre", cbNombres.getValue()); // LISTO, FUNCIONA BIEN
-		 parametros.put("ConsumoPunta", (consumoPunta * precioPunta) + " €");
-		 parametros.put("ConsumoLlano", (consumoLlano * precioLlano) + " €");
-		 parametros.put("ConsumoValle", (consumoValle * precioValle) + " €");
-		 parametros.put("PotenciaConsumida", (consumoLlano + consumoPunta + consumoValle)+ " Kw/h"); // LISTO, FUNCIONA BIEN
-		 parametros.put("PrecioConsPunta", precioPunta + " €");
-		 parametros.put("PrecioConsLlano", precioLlano + " €");
-		 parametros.put("PrecioConsValle", precioValle + " €");
-		 parametros.put("Impuesto", ((consumoValle * precioValle)+(consumoPunta * precioPunta)+ (consumoLlano * precioLlano) * 0.07f ) + " €");
+		 parametros.put("Nombre", cbNombres.getValue());
+		 parametros.put("ConsumoPunta", String.format("%.2f", (consumoPunta * precioPunta)) + " €");
+		 parametros.put("ConsumoLlano", String.format("%.2f", (consumoLlano * precioLlano)) + " €");
+		 parametros.put("ConsumoValle", String.format("%.2f", (consumoValle * precioValle)) + " €");
+		 parametros.put("PotenciaConsumida", String.format("%.2f", (consumoLlano + consumoPunta + consumoValle)) + " Kw/h");
+		 parametros.put("PrecioConsPunta", String.format("%.2f", precioPunta) + " €");
+		 parametros.put("PrecioConsLlano", String.format("%.2f", precioLlano) + " €");
+		 parametros.put("PrecioConsValle", String.format("%.2f", precioValle) + " €");
+		 parametros.put("Impuesto", String.format("%.2f", ((consumoValle * precioValle) + (consumoPunta * precioPunta) + (consumoLlano * precioLlano) * 0.07f)) + " €");
 		 parametros.put("AlquilerContador", alquiler + " €");
-		 parametros.put("IVA", ((consumoValle * precioValle)+(consumoPunta * precioPunta)+ (consumoLlano * precioLlano) * 0.21f ) + " €");
+		 parametros.put("IVA", String.format("%.2f", ((consumoValle * precioValle) + (consumoPunta * precioPunta) + (consumoLlano * precioLlano) * 0.21f)) + " €");
 		 parametros.put("EnergContr", energiaContratada + " €");
-		 parametros.put("Total", ((consumoPunta * precioPunta) + (consumoLlano * precioLlano) + (consumoValle * precioValle) + ((consumoValle * precioValle)+(consumoPunta * precioPunta)+ (consumoLlano * precioLlano) * 0.07f ) + alquiler + ((consumoValle * precioValle)+(consumoPunta * precioPunta)+ (consumoLlano * precioLlano) * 0.21f ) + energiaContratada) + " €");
+		 parametros.put("Total", String.format("%.2f", 
+		     ((consumoPunta * precioPunta) 
+		     + (consumoLlano * precioLlano) 
+		     + (consumoValle * precioValle) 
+		     + ((consumoValle * precioValle) 
+		     + (consumoPunta * precioPunta) 
+		     + (consumoLlano * precioLlano) * 0.07f) 
+		     + alquiler 
+		     + ((consumoValle * precioValle) 
+		     + (consumoPunta * precioPunta) 
+		     + (consumoLlano * precioLlano) * 0.21f) 
+		     + energiaContratada)) + " €");
+		 
+		 
+//		    parametros.put("ConsumoPuntaPie", consumoPunta);
+//		    parametros.put("ConsumoLlanoPie", consumoLlano);
+//		    parametros.put("ConsumoVallePie", consumoValle);
+
 
 		 JasperPrint jasperPrint = null;
 		try {
