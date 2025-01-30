@@ -3,18 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/it_fondo"
-        android:title="@string/CambiarColor" />
-    <item
-        android:id="@+id/it_color"
-        android:title="@string/letra" />
-    <item
         android:id="@+id/it_salir"
         android:title="@string/salir"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/itPreferencias"
-        android:title="@string/tvPreferencias"
-        android:icon="@android:drawable/ic_menu_preferences" />
 </menu>

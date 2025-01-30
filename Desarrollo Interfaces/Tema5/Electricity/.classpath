@@ -17,16 +17,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/sqlite-jdbc-3.47.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/jaspersoftstudio/librerias/com.github.librepdf.openpdf_1.3.32.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/jaspersoftstudio/librerias/com.github.librepdf.openpdf-fonts-extra_1.3.32.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/jaspersoftstudio/librerias/com.jaspersoft.studio.bundles.commons-beanutils_1.9.4.b01.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -72,5 +62,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/jaspersoftstudio/librerias/com.github.librepdf.openpdf_1.3.32.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alumno/Desktop/Entorno Desarrollo/jaspersoftstudio/librerias/com.github.librepdf.openpdf-fonts-extra_1.3.32.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

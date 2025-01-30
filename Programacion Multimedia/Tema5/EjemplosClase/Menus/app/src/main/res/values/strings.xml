@@ -3,5 +3,10 @@
     <string name="CambiarColor">Cambiar Color</string>
     <string name="letra">Color letra</string>
     <string name="salir">Salir</string>
+    <string name="tvPreferencias">Preferencias</string>
+    <string name="swich">wifi</string>
+    <string name="hint">Nombre wifi</string>
+    <string name="aceptar">Aceptar</string>
+
 
 </resources>
