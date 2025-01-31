@@ -1,10 +1,15 @@
 <resources>
-    <string name="app_name">MENÚ</string>
+    <string name="app_name">! ADIVINA LAS PAREJAS ¡</string>
     <string name="titulo">Juego de adivinar las cartas</string>
     <string name="jugar">JUGAR</string>
     <string name="instrucciones">INSTRUCCIONES</string>
     <string name="salir">SALIR</string>
     <string name="volver">VOLVER</string>
+    <string name="abandonar">Abandonar Partida</string>
+    <string name="reseatear">Resetear Partida</string>
+    <string name="juego">BIENVENIDO A LA PARTIDA</string>
+    <string name="aniadir">AÑADIR NOMBRE</string>
+    <string name="nombre">Nombre...</string>
 
     <string name="textoInstrucciones">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Ha sido el texto de relleno estándar de la industria desde el año 1500, cuando un impresor (que también desconocía el idioma) tomó una galería de textos y los mezcló para hacer un libro de muestras de tipos de letra. No solo sobrevivió 5 siglos, sino que también ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual que en el original. Fue popularizado en los 60s con la publicación de las hojas de tipografía "Letraset", que contenían pasajes del texto, y más recientemente con software de autoedición como Aldus PageMaker, que incluye versiones de Lorem Ipsum.</string>
 

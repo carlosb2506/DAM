@@ -1,5 +1,6 @@
 package com.example.ejercicio1;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Instrucciones extends AppCompatActivity {
+public class Instrucciones extends Activity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); // Llamar al super primero
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.layout_instrucciones);
 

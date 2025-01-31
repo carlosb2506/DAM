@@ -1,67 +1,54 @@
-1. Diseño de la BD con las siguientes pautas:
-	· Al menos 5 entidades y 4 relaciones.
-	· Entidades con al menos 3 campos.
-	· Todos los tipos de cardinalidades posibles para mapearlos después con Hibernate.
-	· Todos los tipos de datos que conocemos: String, int, float, Date, boolean, etc.
-	· Al menos un campo autoincremental bien mapeado.
-	· Temática relacionada con el mundo empresarial: logística, compras, ventas, fabricación, etc.
-	· Se entrega el diagrama ER.
-
-
-
-
-
-
-
-
-CREATE TABLE Cliente (
-    dni INT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    fecha_registro DATE NOT NULL
+-- Tabla Clientes
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    direccion VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(50)
 );
 
--- Creación de la tabla Producto
-CREATE TABLE Producto (
-    producto_id INT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    precio FLOAT NOT NULL,
-    stock INT NOT NULL,
-    almacen_id INT,
-    FOREIGN KEY (almacen_id) REFERENCES Almacen(almacen_id)
+-- Tabla Productos
+CREATE TABLE Productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    categoria VARCHAR(50),
+    precio FLOAT,
+    stock INT
 );
 
--- Creación de la tabla Pedido
-CREATE TABLE Pedido (
-    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
-    fecha DATE NOT NULL,
-    total FLOAT NOT NULL,
-    cliente_id INT,
-    FOREIGN KEY (cliente_id) REFERENCES Cliente(dni
-)
+-- Tabla Pedidos
+CREATE TABLE Pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_pedido DATE,
+    id_cliente INT,
+    total FLOAT,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
 );
 
--- Creación de la tabla Proveedor
-CREATE TABLE Proveedor (
-    proveedor_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    contacto VARCHAR(100) NOT NULL,
-    activo BOOLEAN NOT NULL
+-- Tabla Detalle_Pedidos
+CREATE TABLE Detalle_Pedidos (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT,
+    id_producto INT,
+    cantidad INT,
+    precio_unitario FLOAT,
+    FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
--- Creación de la tabla Almacen
-CREATE TABLE Almacen (
-    almacen_id INT AUTO_INCREMENT PRIMARY KEY,
-    ubicacion VARCHAR(100) NOT NULL,
-    capacidad INT NOT NULL,
-    tipo VARCHAR(100) NOT NULL
+-- Tabla Proveedores
+CREATE TABLE Proveedores (
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    contacto VARCHAR(50),
+    direccion VARCHAR(100)
 );
 
--- Creación de la tabla intermedia Pedido_Producto
-CREATE TABLE Pedido_Producto (
-    pedido_id INT,
-    producto_id INT,
-    PRIMARY KEY (pedido_id, producto_id),
-    FOREIGN KEY (pedido_id) REFERENCES Pedido(pedido_id),
-    FOREIGN KEY (producto_id) REFERENCES Producto(producto_id)
+-- Tabla Productos_Proveedores (relación muchos a muchos)
+CREATE TABLE Productos_Proveedores (
+    id_producto INT,
+    id_proveedor INT,
+    PRIMARY KEY (id_producto, id_proveedor),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
 );

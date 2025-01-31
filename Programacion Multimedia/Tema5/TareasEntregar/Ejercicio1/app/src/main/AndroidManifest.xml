@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Instrucciones"/>
+        <activity android:name=".Juego"/>
     </application>
 
 </manifest>

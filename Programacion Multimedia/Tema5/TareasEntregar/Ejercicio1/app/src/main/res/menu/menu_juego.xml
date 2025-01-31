@@ -5,6 +5,12 @@
     <item
         android:id="@+id/it_info"
         android:title="@string/salir"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@android:drawable/ic_menu_info_details"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/it_resetear"
+        android:title="@string/reseatear" />
+    <item
+        android:id="@+id/it_abandonar"
+        android:title="@string/abandonar" />
 </menu>
