@@ -24,6 +24,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -63,6 +67,9 @@ public class SampleController {
 	@FXML
 	private Button btnGenerarPDFButton;
 	
+	@FXML
+	private AnchorPane anchorPaneAyuda;
+	
 	private float precioPunta = 0.2001f;
 	private float precioLlano = 0.1236f;
 	private float precioValle = 0.1560f;
@@ -73,6 +80,26 @@ public class SampleController {
 
 	@FXML
 	public void initialize() throws SQLException {
+		
+	    WebView webView = new WebView();
+
+	    WebEngine webEngine = webView.getEngine();
+
+	    webEngine.load(getClass().getResource("Ayuda.html").toExternalForm());
+
+
+	    webView.setPrefSize(833, 433); 
+
+	    anchorPaneAyuda.getChildren().add(webView);
+		
+	    Tooltip tooltipPdf = new Tooltip("Pulsando este boton se generará un pdf automaticamente con los datos del cliente");
+	    Tooltip tooltipGraficos = new Tooltip("Pulsando este boton se generará un grafico de barras con el consumo total en los meses seleccionados y otro grafico que contendra los datos solos del mes final que se haya seleccionado");
+	    Tooltip tooltipAgregar = new Tooltip("Pulsando este boton se agregara automaticamente el cliente junto a sus datos que estara disponible su información en la otra pestaña");
+	    
+	    btnGenerarPDFButton.setTooltip(tooltipPdf);
+	    btnAgregar.setTooltip(tooltipAgregar);
+	    btnCalcular.setTooltip(tooltipGraficos);
+	    
 		btnAgregar.setOnAction(event -> {
 			agregarBBDD();
 			try {
@@ -93,7 +120,7 @@ public class SampleController {
 		});
 		
 		btnGenerarPDFButton.setOnAction(event -> {
-			//agregarBBDD();
+
 			generarPDF();
 		});
 

@@ -134,6 +134,13 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+          <Tab text="Ayuda">
+            <content>
+              <AnchorPane fx:id="anchorPaneAyuda" minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="833.0">
+                     
+              </AnchorPane>
+            </content>
+          </Tab>
         </tabs>
       </TabPane>
    </center>

@@ -5,6 +5,7 @@ module Electricity {
 	requires java.sql;
 	requires javafx.graphics;
 	requires net.sf.jasperreports.core;
+	requires javafx.web;
 	
 	opens application to javafx.graphics, javafx.fxml;
 }
