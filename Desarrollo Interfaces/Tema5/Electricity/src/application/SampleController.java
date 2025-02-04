@@ -114,7 +114,7 @@ public class SampleController {
 			try {
 				calcularConsumo();
 				calcularConsumoQuesitos();
-			} catch (SQLException e) {
+			} catch (SQLException e) { 
 				e.printStackTrace();
 			}
 		});
