@@ -44,19 +44,19 @@ public class Juego extends AppCompatActivity {
 
         btnAceptar = dialogPers.findViewById(R.id.btnAceptar);
         etTexto = dialogPers.findViewById(R.id.etNombre);
-
         btnAceptar.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                tvNombre.setText(etTexto.getText().toString());
+                tvNombre.setText("Intentos de " + etTexto.getText().toString() + " : ");
                 dialogPers.cancel();
             }
         });
         dialogPers.show();
 
         tvNombre = findViewById(R.id.tvNombre);
+
     }
 
     @SuppressLint("RestrictedApi")
@@ -104,4 +104,6 @@ public class Juego extends AppCompatActivity {
         }
         return selected;
     }
+
+
 }
