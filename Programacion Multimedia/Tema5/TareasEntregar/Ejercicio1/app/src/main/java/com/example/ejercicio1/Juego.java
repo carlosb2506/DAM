@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,10 +22,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class Juego extends AppCompatActivity {
 
     private Dialog dialogPers;
     private TextView tvNombre;
+    private ImageView[] imagenes;
+    private ImageView cartaClikada;
+    private ArrayList<Cartas> listaCartas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,33 @@ public class Juego extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        listaCartas = new ArrayList<Cartas>();
+
+        imagenes = new ImageView[6];
+        imagenes[0] = findViewById(R.id.imagen1);
+        imagenes[1] = findViewById(R.id.imagen2);
+        imagenes[2] = findViewById(R.id.imagen3);
+        imagenes[3] = findViewById(R.id.imagen4);
+        imagenes[4] = findViewById(R.id.imagen5);
+        imagenes[5] = findViewById(R.id.imagen6);
+
+
+
+        for (ImageView imagen : imagenes) {
+            imagen.setImageResource(R.drawable.carta_reversa);
+        }
+
+        for (ImageView imagen : imagenes) {
+            imagen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickear(view);
+                }
+            });
+        }
+
+
 
         Button btnAceptar;
         EditText etTexto;
@@ -56,6 +89,28 @@ public class Juego extends AppCompatActivity {
         dialogPers.show();
 
         tvNombre = findViewById(R.id.tvNombre);
+
+    }
+
+
+    public void clickear(View view)
+    {
+        cartaClikada = (ImageView) view;
+        int contador = 0;
+        boolean encontrada = false;
+        while ((contador < listaCartas.size()) && !encontrada){
+            if (cartaClikada.equals(imagenes[contador])){
+                encontrada = true;
+            }
+            else {
+                contador++;
+            }
+        }
+        imagenes[contador].setImageResource(listaCartas.get(contador).getFoto());
+    }
+
+    public void llenarLista()
+    {
 
     }
 
