@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int opc = item.getItemId();
         boolean selected = false;
-        if (opc == R.id.it_info){
+        if (opc == R.id.it_pista){
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("¿ESTAS SEGURO DE QUE DESEAS ABANDONARME?");

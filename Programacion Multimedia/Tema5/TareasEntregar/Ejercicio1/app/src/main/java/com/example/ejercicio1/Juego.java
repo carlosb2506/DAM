@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -30,7 +34,14 @@ public class Juego extends AppCompatActivity {
     private TextView tvNombre;
     private ImageView[] imagenes;
     private ImageView cartaClikada;
+    private int cartaAlmcenada;
     private ArrayList<Cartas> listaCartas;
+    private int contadorGiro = 0;
+    private Handler manejador;
+    private String nombre;
+    private int intentos = 0;
+    private boolean pistaUsada = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +79,7 @@ public class Juego extends AppCompatActivity {
             });
         }
 
-
+        llenarLista();
 
         Button btnAceptar;
         EditText etTexto;
@@ -77,12 +88,15 @@ public class Juego extends AppCompatActivity {
 
         btnAceptar = dialogPers.findViewById(R.id.btnAceptar);
         etTexto = dialogPers.findViewById(R.id.etNombre);
+
         btnAceptar.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                tvNombre.setText("Intentos de " + etTexto.getText().toString() + " : ");
+                nombre = etTexto.getText().toString();
+                tvNombre.setText("Intentos de " + nombre + " : " + intentos);
+
                 dialogPers.cancel();
             }
         });
@@ -90,28 +104,103 @@ public class Juego extends AppCompatActivity {
 
         tvNombre = findViewById(R.id.tvNombre);
 
+
     }
 
+    public void clickear(View view) {
 
-    public void clickear(View view)
-    {
+        if (intentos >= 5) {
+
+            mostrarAlertDialog();
+            return;
+        }
+
+        contadorGiro++;
         cartaClikada = (ImageView) view;
         int contador = 0;
         boolean encontrada = false;
-        while ((contador < listaCartas.size()) && !encontrada){
-            if (cartaClikada.equals(imagenes[contador])){
+
+        while ((contador < listaCartas.size()) && !encontrada) {
+            if (cartaClikada.equals(imagenes[contador])) {
                 encontrada = true;
-            }
-            else {
+            } else {
                 contador++;
             }
         }
-        imagenes[contador].setImageResource(listaCartas.get(contador).getFoto());
+
+        if (contadorGiro < 2) {
+            cartaAlmcenada = contador;
+        } else if (contadorGiro == 2) {
+
+            if (contador != cartaAlmcenada) {
+                imagenes[contador].setImageResource(listaCartas.get(contador).getFoto());
+                imagenes[cartaAlmcenada].setImageResource(listaCartas.get(cartaAlmcenada).getFoto());
+                contadorGiro = 0;
+
+                final int finalContador = contador;
+                if (listaCartas.get(contador).getFoto() != listaCartas.get(cartaAlmcenada).getFoto()) {
+                    manejador = new Handler(Looper.getMainLooper());
+
+
+                    manejador.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            imagenes[finalContador].setImageResource(R.drawable.carta_reversa);
+                            imagenes[cartaAlmcenada].setImageResource(R.drawable.carta_reversa);
+                            intentos++;
+                            tvNombre.setText("Intentos de " + nombre + " : " + intentos);
+                        }
+                    }, 2000);
+                }
+            } else {
+                contadorGiro--;
+            }
+        }
+    }
+
+    private void mostrarAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Fin de la partida");
+        builder.setMessage("Has alcanzado 5 intentos. ¿Qué deseas hacer?");
+
+        builder.setPositiveButton("Resetear partida", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                resetearPartida();
+            }
+        });
+
+        builder.setNegativeButton("Abandonar partida", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        builder.create().show();
+    }
+
+    private void resetearPartida() {
+
+        intentos = 0;
+        contadorGiro = 0;
+        pistaUsada = false;
+
+        for (ImageView carta : imagenes) {
+            carta.setImageResource(R.drawable.carta_reversa);
+            carta.setClickable(true);
+        }
+        tvNombre.setText("Intentos de " + nombre + " : " + intentos);
     }
 
     public void llenarLista()
     {
-
+        listaCartas.add(new Cartas(false, R.drawable.carta2));
+        listaCartas.add(new Cartas(false, R.drawable.carta1));
+        listaCartas.add(new Cartas(false, R.drawable.carta3));
+        listaCartas.add(new Cartas(false, R.drawable.carta3));
+        listaCartas.add(new Cartas(false, R.drawable.carta2));
+        listaCartas.add(new Cartas(false, R.drawable.carta1));
     }
 
     @SuppressLint("RestrictedApi")
@@ -151,14 +240,51 @@ public class Juego extends AppCompatActivity {
             });
             builder.create().show();
 
-        }else if (opc == R.id.it_info){
+        }else if (opc == R.id.it_pista){
+            if (!pistaUsada) {
+                // Marcar que ya se usó la pista
+                pistaUsada = true;
 
-            Intent i = new Intent(this, Instrucciones.class);
-            startActivity(i);
+                // Llamar a la función para girar una carta aleatoria
+                girarCartaAleatoria();
 
+            } else {
+                // Si el botón ya fue usado, mostrar un mensaje o deshabilitarlo
+                Toast.makeText(this, "Ya has usado la pista.", Toast.LENGTH_SHORT).show();
+            }
+
+        } else if (opc == R.id.it_resetear) {
+            resetearPartida();
         }
         return selected;
     }
 
+    private void girarCartaAleatoria() {
+        // Buscar cartas que no han sido giradas (imagen reversa)
+        ArrayList<Integer> cartasNoGiradas = new ArrayList<>();
+        for (int i = 0; i < imagenes.length; i++) {
+            if (imagenes[i].getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.carta_reversa).getConstantState())) {
+                cartasNoGiradas.add(i);
+            }
+        }
 
+        if (!cartasNoGiradas.isEmpty()) {
+            // Elegir una carta aleatoria
+            int indiceAleatorio = cartasNoGiradas.get((int) (Math.random() * cartasNoGiradas.size()));
+
+            // Mostrar la carta durante 2 segundos
+            imagenes[indiceAleatorio].setImageResource(listaCartas.get(indiceAleatorio).getFoto());
+
+            // Volver a darle la vuelta después de 2 segundos
+            Handler manejador = new Handler(Looper.getMainLooper());
+            manejador.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    imagenes[indiceAleatorio].setImageResource(R.drawable.carta_reversa);
+                }
+            }, 2000); // 2 segundos
+        } else {
+            Toast.makeText(this, "Ya todas las cartas han sido giradas.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
