@@ -6,19 +6,19 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Productos")
-public class Producto {
+public class Productos {
 	
 	@Id
-    private int idProducto;
+    private int id_producto;
     private String nombre;
     private String categoria;
     private float precio;
     private int stock;
 	public int getIdProducto() {
-		return idProducto;
+		return id_producto;
 	}
 	public void setIdProducto(int idProducto) {
-		this.idProducto = idProducto;
+		this.id_producto = idProducto;
 	}
 	public String getNombre() {
 		return nombre;
@@ -44,9 +44,9 @@ public class Producto {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public Producto(int idProducto, String nombre, String categoria, float precio, int stock) {
+	public Productos(int idProducto, String nombre, String categoria, float precio, int stock) {
 		super();
-		this.idProducto = idProducto;
+		this.id_producto = idProducto;
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.precio = precio;
@@ -54,7 +54,7 @@ public class Producto {
 	}
 	@Override
 	public String toString() {
-		return "Producto [idProducto=" + idProducto + ", nombre=" + nombre + ", categoria=" + categoria + ", precio="
+		return "Producto [idProducto=" + id_producto + ", nombre=" + nombre + ", categoria=" + categoria + ", precio="
 				+ precio + ", stock=" + stock + "]";
 	}
 

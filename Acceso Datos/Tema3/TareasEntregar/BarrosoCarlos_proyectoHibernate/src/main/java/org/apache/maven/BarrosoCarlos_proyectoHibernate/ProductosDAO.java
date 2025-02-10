@@ -6,46 +6,45 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-public class ClientesDAO {
-
+public class ProductosDAO {
+	
 	SessionFactory sf;
 
-	public ClientesDAO() {
+	public ProductosDAO() {
 		super();
 
 		sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
 	}
-
-	public void aniadirCliente(Clientes cliente) {
+	
+    public void anadirProducto(Productos producto) {
 		try (Session session = sf.openSession()) {
 			
 			Transaction transaction = session.beginTransaction();
 
-			session.persist(cliente);
+			session.persist(producto);
 
 			transaction.commit();
 		} catch (Exception e) {
-			System.out.println("Error al añadir cliente");
+			System.out.println("Error al añadir el nuevo producto");
 			e.printStackTrace();
 		}
-	}
+    }
 
-
-	public Clientes buscarCliente(int id) {
-		Clientes c = null;
+	public Productos buscarProducto(String nombre) {
+		Productos p = null;
 		try (Session session = sf.openSession()) {
 
-			String hql = "FROM Clientes WHERE id_cliente = :id";
+			String hql = "FROM Productos WHERE nombre = :nombre";
 
-			Query<Clientes> q = session.createQuery(hql, Clientes.class);
-			q.setParameter("id", id);
+			Query<Productos> q = session.createQuery(hql, Productos.class);
+			q.setParameter("nombre", nombre);
 
-			c = q.uniqueResult();
+			p = q.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return c;
+		return p;
 	}
 }
