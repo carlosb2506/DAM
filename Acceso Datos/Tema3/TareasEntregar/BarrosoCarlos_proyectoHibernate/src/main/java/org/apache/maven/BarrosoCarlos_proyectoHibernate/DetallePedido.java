@@ -1,6 +1,14 @@
 package org.apache.maven.BarrosoCarlos_proyectoHibernate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Detalle_Pedidos")
 public class DetallePedido {
+	
+	@Id
     private int idDetalle;
     private int idPedido;
     private int idProducto;

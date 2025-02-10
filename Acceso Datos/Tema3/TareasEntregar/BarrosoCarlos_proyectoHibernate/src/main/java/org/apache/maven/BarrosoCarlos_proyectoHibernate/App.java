@@ -1,10 +1,15 @@
 package org.apache.maven.BarrosoCarlos_proyectoHibernate;
 
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+		ClientesDAO clienteDao = new ClientesDAO();
+		
+		Clientes c = clienteDao.buscarCliente(1);
+		
+		if (c != null) {
+			System.out.println(c.toString());
+		} else {
+			System.out.println("Cliente no encontrado :(");
+		}
     }
 }

@@ -1,6 +1,16 @@
 package org.apache.maven.BarrosoCarlos_proyectoHibernate;
 
+import java.sql.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Pedidos")
 public class Pedido {
+	
+	@Id
     private int idPedido;
     private Date fechaPedido;
     private int idCliente;
@@ -22,7 +32,7 @@ public class Pedido {
 	}
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
-	}
+	} 
 	public float getTotal() {
 		return total;
 	}

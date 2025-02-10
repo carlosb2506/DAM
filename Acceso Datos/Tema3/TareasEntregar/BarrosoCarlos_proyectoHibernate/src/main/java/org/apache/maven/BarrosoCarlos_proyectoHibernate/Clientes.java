@@ -1,16 +1,25 @@
 package org.apache.maven.BarrosoCarlos_proyectoHibernate;
 
-public class Cliente {
-    private int idCliente;
-    private String nombre;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Clientes")
+public class Clientes {
+	
+	@Id
+    private int id_cliente;
+	private String nombre;
     private String direccion;
     private String telefono;
     private String email;
 	public int getIdCliente() {
-		return idCliente;
+		return id_cliente;
 	}
 	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+		this.id_cliente = idCliente;
 	}
 	public String getNombre() {
 		return nombre;
@@ -36,9 +45,12 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Cliente(int idCliente, String nombre, String direccion, String telefono, String email) {
+    public Clientes() {
 		super();
-		this.idCliente = idCliente;
+	}
+	public Clientes(int idCliente, String nombre, String direccion, String telefono, String email) {
+		super();
+		this.id_cliente = idCliente;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -46,8 +58,7 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono="
-				+ telefono + ", email=" + email + "]";
+		return "Id: " + id_cliente + ", Nombre: " + nombre + ", Direccion: " + direccion + ", Telefono: " + telefono + ", Email: " + email;
 	}
 
     

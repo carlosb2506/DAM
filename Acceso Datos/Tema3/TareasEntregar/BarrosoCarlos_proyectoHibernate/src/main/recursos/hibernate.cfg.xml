@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+  <property name="hibernate.connection.url">jdbc:sqlite:C:/PruebasJava/Logistica.db</property>
+  <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
+  <property name="hibernate.generate_statistics">false</property>
+  <property name="hibernate.show_sql">true</property>
+  <mapping class="org.apache.maven.BarrosoCarlos_proyectoHibernate.Clientes"/>
+  <mapping class="org.apache.maven.BarrosoCarlos_proyectoHibernate.ClientesDAO"/>
+ </session-factory>
+</hibernate-configuration>
