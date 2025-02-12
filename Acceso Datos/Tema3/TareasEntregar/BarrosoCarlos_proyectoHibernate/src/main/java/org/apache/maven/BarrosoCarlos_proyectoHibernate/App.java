@@ -13,15 +13,26 @@ public class App {
 		}
 
 //		clienteDao.aniadirCliente(new Clientes(5, "Carlos Barroso", "C/ REAL", "643223234", "cbarlop2506@gmail.com"));
-		
+
 		ProductosDAO productosDao = new ProductosDAO();
 
-		Productos p = productosDao.buscarProducto("Camiseta");
+		Productos p = productosDao.buscarProducto("Laptop");
 
 		if (p != null) {
 			System.out.println(p.toString());
 		} else {
 			System.out.println("Producto no encontrado :(");
 		}
+
+		ProveedoresDAO proveedorDao = new ProveedoresDAO();
+
+		Proveedores pr = proveedorDao.buscarProveedor("Proveedor 1");
+
+		if (pr != null) {
+			System.out.println(pr.toString());
+		} else {
+			System.out.println("Proveedor no encontrado :(");
+		}
 	}
+
 }

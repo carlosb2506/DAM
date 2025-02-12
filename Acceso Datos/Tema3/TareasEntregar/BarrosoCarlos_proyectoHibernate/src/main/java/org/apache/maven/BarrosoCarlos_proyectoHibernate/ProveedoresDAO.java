@@ -6,45 +6,44 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-public class DetallePedidoDAO {
+public class ProveedoresDAO {
 	SessionFactory sf;
 
-	public DetallePedidoDAO() {
+	public ProveedoresDAO() {
 		super();
 
 		sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
 	}
 	
-    public void anadirProducto(Detalle_Pedidos detped) {
+    public void anadirProveedor(Proveedores proveedor) {
 		try (Session session = sf.openSession()) {
 			
 			Transaction transaction = session.beginTransaction();
 
-			session.persist(detped);
+			session.persist(proveedor);
 
 			transaction.commit();
 		} catch (Exception e) {
-			System.out.println("Error al añadir el nuevo detalle del pedido");
+			System.out.println("Error al añadir el nuevo proveedor");
 			e.printStackTrace();
 		}
     }
 
-	public Detalle_Pedidos buscarDetallePedido(String nombre) {
-		Productos p = null;
+	public Proveedores buscarProveedor(String nombre) {
+		Proveedores pr = null;
 		try (Session session = sf.openSession()) {
 
-			String hql = "FROM Productos WHERE nombre = :nombre";
+			String hql = "FROM Proveedores WHERE nombre = :nombre";
 
-			Query<Productos> q = session.createQuery(hql, Productos.class);
+			Query<Proveedores> q = session.createQuery(hql, Proveedores.class);
 			q.setParameter("nombre", nombre);
 
-			p = q.uniqueResult();
+			pr = q.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return p;
+		return pr;
 	}
-
 }
