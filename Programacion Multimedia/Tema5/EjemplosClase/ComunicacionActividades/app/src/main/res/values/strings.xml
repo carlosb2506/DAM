@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ComunicacionActividades</string>
+    <string name="tv_titulo">Las recetas de la abuela</string>
+    <string name="subtitulo">Comida rica y tradicional</string>
+    <string name="btn_volver">Volver</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="et_titulo">Receta</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="et_pasos">Pasos</string>
+    <string name="et_duracion">Duracion (en min)</string>
+
+</resources>
