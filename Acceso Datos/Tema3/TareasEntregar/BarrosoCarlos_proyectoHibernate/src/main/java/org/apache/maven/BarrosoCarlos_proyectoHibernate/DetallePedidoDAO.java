@@ -31,7 +31,7 @@ public class DetallePedidoDAO {
     }
 
 	public Detalle_Pedidos buscarDetallePedido(String nombre) {
-		Productos p = null;
+		Detalle_Pedidos det_pedidos = null;
 		try (Session session = sf.openSession()) {
 
 			String hql = "FROM Productos WHERE nombre = :nombre";
@@ -39,12 +39,12 @@ public class DetallePedidoDAO {
 			Query<Productos> q = session.createQuery(hql, Productos.class);
 			q.setParameter("nombre", nombre);
 
-			p = q.uniqueResult();
+			det_pedidos = q.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return p;
+		return det_pedidos;
 	}
 
 }
