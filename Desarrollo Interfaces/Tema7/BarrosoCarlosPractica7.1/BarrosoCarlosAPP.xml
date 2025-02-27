@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Alumno\Desktop\DAM\Desarrollo Interfaces\BarrosoCarlosAPP.jar</jar>
+  <outfile>C:\Users\Alumno\Desktop\DAM\Desarrollo Interfaces\BarrosoCarlosAPP.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon></icon>
+  <classPath>
+    <mainClass>application.Main</mainClass>
+    <cp>.</cp>
+    <cp>BarrosoCarlosAPP_lib/org.eclipse.fx.ide.css.jfx8_3.8.0.202204150904.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/sqlite-jdbc-3.47.0.0.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/com.jaspersoft.studio.bundles.commons-beanutils_1.9.4.b01.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jasperreports-7.0.1.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jasperreports-charts-7.0.1.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jasperreports-data-adapters-7.0.1.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jasperreports-excel-poi-7.0.1.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jasperreports-pdf-7.0.1.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/jfreechart-1.5.5.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/org.apache.commons.commons-collections4_4.4.0.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/org.apache.commons.logging_1.2.0.v20180409-1502.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/com.github.librepdf.openpdf_1.3.32.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/com.github.librepdf.openpdf-fonts-extra_1.3.32.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.base.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.controls.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.fxml.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.graphics.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.media.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.swing.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx.web.jar</cp>
+    <cp>BarrosoCarlosAPP_lib/javafx-swt.jar</cp>
+  </classPath>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>

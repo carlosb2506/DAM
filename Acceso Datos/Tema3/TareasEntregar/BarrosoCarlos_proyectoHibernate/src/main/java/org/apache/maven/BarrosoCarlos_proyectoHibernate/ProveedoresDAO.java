@@ -31,7 +31,7 @@ public class ProveedoresDAO {
     }
 
 	public Proveedores buscarProveedor(String nombre) {
-		Proveedores pr = null;
+		Proveedores prov = null;
 		try (Session session = sf.openSession()) {
 
 			String hql = "FROM Proveedores WHERE nombre = :nombre";
@@ -39,11 +39,27 @@ public class ProveedoresDAO {
 			Query<Proveedores> q = session.createQuery(hql, Proveedores.class);
 			q.setParameter("nombre", nombre);
 
-			pr = q.uniqueResult();
+			prov = q.uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return pr;
+		return prov;
 	}
+	
+	public void actualizarProveedor(Proveedores proveedor) {
+	    Transaction transaction = null;
+	    try (Session session = sf.openSession()) {
+	        transaction = session.beginTransaction();
+	        session.merge(proveedor); 
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        System.out.println("Error al actualizar el proveedor");
+	        e.printStackTrace();
+	    }
+	}
+
 }

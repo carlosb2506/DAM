@@ -48,4 +48,38 @@ public class ClientesDAO {
 
 		return c;
 	}
+	
+	public Clientes buscarClienteNombre(String nombre) {
+		Clientes c = null;
+		try (Session session = sf.openSession()) {
+
+			String hql = "FROM Clientes WHERE nombre = :id";
+
+			Query<Clientes> q = session.createQuery(hql, Clientes.class);
+			q.setParameter("id", nombre);
+
+			c = q.uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return c;
+	}
+	
+	public void actualizarCliente(Clientes cliente) {
+	    Transaction transaction = null;
+	    try (Session session = sf.openSession()) {
+	        transaction = session.beginTransaction();
+	        session.merge(cliente);
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        System.out.println("Error al actualizar el cliente");
+	        e.printStackTrace();
+	    }
+	}
+
+
 }

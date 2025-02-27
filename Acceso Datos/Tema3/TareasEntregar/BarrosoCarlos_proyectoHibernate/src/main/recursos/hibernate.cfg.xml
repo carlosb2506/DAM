@@ -17,10 +17,14 @@
 			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.Productos" />
 		<mapping
 			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.ProductosDAO" />
-				<mapping
+		<mapping
 			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.Proveedores" />
 		<mapping
 			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.ProveedoresDAO" />
+		<mapping
+			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.Pedidos" />
+		<mapping
+			class="org.apache.maven.BarrosoCarlos_proyectoHibernate.PedidoDAO" />
 
 	</session-factory>
 </hibernate-configuration>

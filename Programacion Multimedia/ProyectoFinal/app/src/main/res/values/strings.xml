@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProyectoFinal</string>
+    <string name="btnVerAsig">Ver Asignaturas</string>
+    <string name="btnAniadirAsig">Añadir Asignaturas</string>
+    <string name="titulo">EDUPLUS</string>
+    <string name="etNombreAsig">Nombre de la asignatura</string>
+    <string name="etAño">Año que se imparte</string>
+    <string name="etObservaciones">Observaciones...</string>
+
+
+</resources>

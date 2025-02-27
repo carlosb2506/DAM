@@ -47,4 +47,20 @@ public class ProductosDAO {
 
 		return p;
 	}
+	
+	public void actualizarProducto(Productos producto) {
+	    Transaction transaction = null;
+	    try (Session session = sf.openSession()) {
+	        transaction = session.beginTransaction();
+	        session.merge(producto);
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        System.out.println("Error al actualizar el producto");
+	        e.printStackTrace();
+	    }
+	}
+
 }
